@@ -1,0 +1,67 @@
+#
+# ~/.bash_profile
+#
+
+# set tty console font
+setfont ter-120b
+
+# turn off annoying beep
+set bell-style none
+
+# set vi mode
+set -o vi
+
+# autocd
+#shopt -s autocd
+
+# prevent overwrite of files
+#set -o noclobber
+
+# defaults
+export PAGER=/usr/bin/less
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+export READER=/usr/bin/zathura
+export BROWSER=/usr/bin/lynx
+
+# keep history file
+set -o history
+
+# clear history on exit
+unset HISTFILE
+
+# append to history
+shopt -s histappend
+
+# ignore these commands
+export HISTIGNORE="op:man:nnn:vi:vim:sudo:doas:pss:psi:pqs:pqi:syu:yss:ysi:yqs:yqi:yt:yta:qq:pp:cl:cll:clc:ls:cd:fcd:cat:less:df:du:brtt:batt:sound:mute:umute:vol:vol60:free:grep:find:sr:lynx"
+
+# ignore duplicates
+export HISTCONTROL="ignoredups:erasedups"
+
+# nnn
+export NNN_OPENER=/usr/bin/xdg-open
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_PLUG="f:fzplug;p:preview-tui"
+
+# xdg-usr-directories
+export XDG_DOWNLOAD_DIR=$HOME/Downloads
+export XDG_DOCUMENTS_DIR=$HOME/Documents
+export XDG_MUSIC_DIR=$HOME/Music
+export XDG_PICTURES_DIR=$HOME/Pictures
+export XDG_VIDEOS_DIR=$HOME/Videos
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DATA_STATE="$HOME/.local/state"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share"
+export XDG_CONFIG_DIRS=/etc/xdg
+
+# add custom folder to Path
+export PATH="${PATH}:$HOME/.local/bin"
+
+# lesshistfile
+export LESSHISTFILE=$XDG_DATA_HOME/lesshst
+
+# define Home for Lynx
+export WWW_HOME="https://duckduckgo.com"
