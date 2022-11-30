@@ -38,6 +38,7 @@ alias psi="/usr/bin/pacman -Si"
 alias pqs="/usr/bin/pacman -Qs"
 alias pqe="/usr/bin/pacman -Qe"
 alias pqi="/usr/bin/pacman -Qi"
+alias Syu="/usr/bin/yay -Syu"
 alias yss="/usr/bin/yay -Ss"
 alias ysi="/usr/bin/yay -Si"
 alias yqs="/usr/bin/yay -Qs"
@@ -74,7 +75,7 @@ alias ..5="cd ../../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories
 
 # fzf
 fcd() {
-	cd "$(/usr/bin/find $HOME -type d | fzf)";/usr/bin/exa -lh --group-directories-first
+	cd "$(/usr/bin/find $HOME -type d | fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
 }
 op() {
 	/usr/bin/xdg-open "$(/usr/bin/find $HOME -type f | fzf)"
@@ -87,6 +88,9 @@ alias gss="/usr/bin/git ls-files -m -o --exclude-standard | fzf -m --print0 | /u
 alias cl=/usr/bin/clear
 alias clc="/usr/bin/clear;cd"
 alias cll="/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
+
+# rename
+alias nn="/usr/local/bin/vimv"
 
 # confirm before overwriting something
 alias cp="/usr/bin/cp -vi"

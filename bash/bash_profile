@@ -34,15 +34,10 @@ unset HISTFILE
 shopt -s histappend
 
 # ignore these commands
-export HISTIGNORE="op:man:nnn:vi:vim:sudo:doas:pss:psi:pqs:pqi:syu:yss:ysi:yqs:yqi:yt:yta:qq:pp:cl:cll:clc:ls:cd:fcd:cat:less:df:du:brtt:batt:sound:mute:umute:vol:vol60:free:grep:find:sr:lynx"
+export HISTIGNORE="op:path:tldr:man:vi:vim:nvim:sudo:pss:psi:pqs:pqi:syu:Syu:yss:ysi:yqs:yqi:yt:yta:qq:pp:cl:cll:clc:ls:cd:fcd:cat:less:df:du:free:brtt:batt:sound:mute:vol:vol60:grep:find:sr:lynx"
 
 # ignore duplicates
 export HISTCONTROL="ignoredups:erasedups"
-
-# nnn
-export NNN_OPENER=/usr/bin/xdg-open
-export NNN_FIFO="/tmp/nnn.fifo"
-export NNN_PLUG="f:fzplug;p:preview-tui"
 
 # xdg-usr-directories
 export XDG_DOWNLOAD_DIR=$HOME/Downloads
