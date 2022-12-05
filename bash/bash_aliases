@@ -94,8 +94,8 @@ alias rpath="/usr/bin/find /usr | fzf | /usr/bin/tr -d '\n' | /usr/bin/xclip -se
 alias wall="/usr/bin/find $HOME -type d | fzf | /usr/bin/xargs /usr/local/bin/nsxiv -ftoq *.JPG | /usr/bin/xargs /usr/bin/xwallpaper --zoom"
 
 # grep
-alias gp="/usr/bin/grep -iIHwr --color"
-alias gb="/usr/bin/find $HOME -name '.bash_aliases' | /usr/bin/xargs /usr/bin/grep -iI --color"
+alias gpp="/usr/bin/grep -iIHwr --color"
+alias gbb="/usr/bin/find $HOME -name '.bash_aliases' | /usr/bin/xargs /usr/bin/grep -iI --color"
 
 # clear
 alias cl=/usr/bin/clear
