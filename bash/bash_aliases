@@ -14,13 +14,15 @@ alias poweroff="/usr/bin/doas /usr/bin/poweroff"
 # hardware
 alias batt="/usr/bin/grep -E 'STATUS|CAPACITY' /sys/class/power_supply/BAT0/uevent | /usr/bin/sed 's/^.*\=//g;2q'"
 alias brtt="/usr/bin/cat /sys/class/backlight/nv_backlight/brightness"
-alias sound="/usr/bin/amixer sget Master | grep Mono\: | awk '{print \$4 \$6}'"
+alias sound="/usr/bin/amixer sget Master | /usr/bin/grep Mono\: | awk '{print \$4 \$6}'"
 
 # xdg-mime
 alias xxqf="/usr/bin/xdg-mime query filetype"
 alias xxqd="/usr/bin/xdg-mime query default"
 alias xxd="/usr/bin/xdg-mime default"
 alias xx="/usr/bin/xdg-open"
+alias udd="/usr/bin/update-desktop-database"
+alias umd="/usr/bin/update-mime-database"
 
 # amixer
 alias mute="/usr/bin/amixer -q sset Master toggle"
@@ -77,19 +79,30 @@ alias ..5="cd ../../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories
 fcd() {
 	cd "$(/usr/bin/find $HOME -type d | fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
 }
+ccd() {
+	cd "$(/usr/bin/find . -type d | fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
+}
 op() {
 	/usr/bin/xdg-open "$(/usr/bin/find $HOME -type f | fzf)"
 }
-alias path="/usr/bin/find $HOME -type f | fzf | /usr/bin/sed 's/\.\//\$HOME\//' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection c"
-alias rpath="/usr/bin/find /usr | fzf"
-alias gss="/usr/bin/git ls-files -m -o --exclude-standard | fzf -m --print0 | /usr/bin/xargs -0 -o -t /usr/bin/git add -p"
+opp() {
+	/usr/bin/xdg-open "$(/usr/bin/find -type f | fzf)"
+}
+alias path="/usr/bin/find $HOME -type f | fzf | /usr/bin/sed 's/\.\//\$HOME\//' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
+alias dpath="/usr/bin/find $HOME -type d | fzf | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
+alias rpath="/usr/bin/find /usr | fzf | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
+alias wall="/usr/bin/find $HOME -type d | fzf | /usr/bin/xargs /usr/local/bin/nsxiv -ftoq *.JPG | /usr/bin/xargs /usr/bin/xwallpaper --zoom"
+
+# grep
+alias gp="/usr/bin/grep -iIHwr --color"
+alias gb="/usr/bin/find $HOME -name '.bash_aliases' | /usr/bin/xargs /usr/bin/grep -iI --color"
 
 # clear
 alias cl=/usr/bin/clear
 alias clc="/usr/bin/clear;cd"
 alias cll="/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
 
-# rename
+# bulk rename
 alias nn="/usr/local/bin/vimv"
 
 # confirm before overwriting something
@@ -119,13 +132,20 @@ alias rmt="/usr/bin/trash restore"
 
 # nsxiv
 alias iv="/usr/local/bin/nsxiv -ftraq *"
-alias ivv="/usr/local/bin/nsxiv -ftpraq *"
+alias ivp="/usr/local/bin/nsxiv -ftpraq *"
+alias ivo="/usr/local/bin/nsxiv -fto *"
+
+# mpv
+alias mm="/usr/bin/mpv *.mp4"
 
 # nvim
 alias vi=/usr/bin/nvim
 alias vim=/usr/bin/nvim
 alias svim="/usr/bin/doas /usr/bin/nvim"
 alias vimdiff="/usr/bin/nvim -d"
+
+# which
+alias ww=/usr/bin/which
 
 # ping
 alias pp="/usr/bin/ping 8.8.8.8 -c 5"
@@ -147,7 +167,7 @@ alias torr=/usr/bin/attractorr
 alias sub="$HOME/.local/bin/opensubtitles-dl.sh -l eng -n"
 
 # curl
-alias cc="/usr/bin/curl --remote-name"
+alias ccc="/usr/bin/curl --remote-name"
 
 # weather
 alias wttr="/usr/bin/curl wttr.in/$place"

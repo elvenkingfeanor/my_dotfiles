@@ -34,7 +34,7 @@ unset HISTFILE
 shopt -s histappend
 
 # ignore these commands
-export HISTIGNORE="op:path:tldr:man:vi:vim:nvim:sudo:pss:psi:pqs:pqi:syu:Syu:yss:ysi:yqs:yqi:yt:yta:qq:pp:cl:cll:clc:ls:cd:fcd:cat:less:df:du:free:brtt:batt:sound:mute:vol:vol60:grep:find:sr:lynx"
+export HISTIGNORE="path:dpath:rpath:tldr:man:vi:vim:nvim:sudo:pss:psi:pqs:pqi:syu:Syu:yss:ysi:yqs:yqi:yt:yta:qq:pp:cl:cll:clc:ls:cd:fcd:ccd:op:opp:cat:less:df:du:free:wall:brtt:batt:sound:mute:vol:vol60:grep:gp:ga:find:sr:lynx:iv:ivp:ivo:mm:nn:torr:sub:wttr:cu:cn"
 
 # ignore duplicates
 export HISTCONTROL="ignoredups:erasedups"
