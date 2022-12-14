@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/amixer -q set Master 5\%\- unmute

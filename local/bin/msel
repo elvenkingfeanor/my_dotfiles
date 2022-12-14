@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/find $HOME -type f | fzf -m | /usr/bin/paste -s -d ' ' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard

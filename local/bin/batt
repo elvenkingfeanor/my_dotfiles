@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/grep -E 'STATUS|CAPACITY' /sys/class/power_supply/BAT0/uevent | /usr/bin/sed 's/^.*\=//g;2q'

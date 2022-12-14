@@ -1,0 +1,4 @@
+#!/bin/sh
+
+password=$(/usr/bin/find $HOME/.password-store/ -type f -name '*.gpg' | fzf | sed 's/^.*store\///g' | sed 's/\.gpg$//g')
+[ -n "$password" ] && pass show -c "$password"
