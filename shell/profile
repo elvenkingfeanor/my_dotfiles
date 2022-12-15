@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# set tty console font
+setfont ter-120b
+
+# turn off annoying beep
+set bell-style none
+
+# set vi mode
+set -o vi
+
+# autocd
+#shopt -s autocd
+
+# prevent overwrite of files
+#set -o noclobber
+
+# defaults
+export PAGER=/usr/bin/less
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+export READER=/usr/bin/zathura
+export BROWSER=/usr/bin/lynx
+
+# keep history file
+set -o history
+
+# clear history on exit
+unset HISTFILE
+
+# append to history
+shopt -s histappend
+
+# ignore these commands
+export HISTIGNORE="path:dpath:rpath:tldr:man:vi:vim:nvim:sudo:pss:psi:pqs:pqi:syu:Syu:yss:ysi:yqs:yqi:yt:yta:qq:pp:cl:cll:clc:ls:cd:fcd:ccd:op:opp:cat:less:df:du:free:wall:brtt:batt:sound:mute:vol:vol60:grep:gp:ga:find:sr:lynx:iv:ivp:ivo:mm:nn:torr:sub:wttr:cu:cn"
+
+# ignore duplicates
+export HISTCONTROL="ignoredups:erasedups"
+
+# xdg-usr-directories
+export XDG_DOWNLOAD_DIR=$HOME/Downloads
+export XDG_DOCUMENTS_DIR=$HOME/Documents
+export XDG_MUSIC_DIR=$HOME/Music
+export XDG_PICTURES_DIR=$HOME/Pictures
+export XDG_VIDEOS_DIR=$HOME/Videos
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share"
+export XDG_CONFIG_DIRS=/etc/xdg
+
+# xdg-ninja
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export GOPATH="$XDG_DATA_HOME"/go
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export CARGOHOME="$XDG_DATA_HOME"/cargo
+export CALCHISTFILE="$XDG_CACHE_HOME"/calc_history
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
+# add custom folder to Path
+export PATH="${PATH}:$HOME/.local/bin"
+
+# fzf defaults
+export FZF_DEFAULT_OPTS="--cycle --height ~55%"
+
+# lesshistfile
+export LESSHISTFILE=$XDG_DATA_HOME/lesshst
+
+# define Home for Lynx
+export WWW_HOME="https://duckduckgo.com"

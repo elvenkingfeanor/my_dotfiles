@@ -1,0 +1,17 @@
+#
+# .bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+[[ $DISPLAY ]] && shopt -s checkwinsize
+
+PS1='[\u@\h \W]\$ '
+
+source /home/ts/.config/shell/profile
+source /home/ts/.config/shell/aliasrc
+source /home/ts/.config/shell/private
+source /home/ts/.config/shell/logout
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

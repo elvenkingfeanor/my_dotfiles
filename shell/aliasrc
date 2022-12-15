@@ -1,0 +1,175 @@
+#!/bin/bash
+
+alias ssb="source $HOME/.bashrc"
+
+# sudo
+alias sudo=/usr/bin/doas
+
+# power
+alias reboot="/usr/bin/doas /usr/bin/reboot"
+alias poweroff="/usr/bin/doas /usr/bin/poweroff"
+
+# xdg-mime
+alias xxqf="/usr/bin/xdg-mime query filetype"
+alias xxqd="/usr/bin/xdg-mime query default"
+alias xxd="/usr/bin/xdg-mime default"
+alias xx="/usr/bin/xdg-open"
+alias umd="/usr/bin/update-mime-database"
+
+# desktop entries
+alias dfv="/usr/bin/desktop-file-validate"
+alias dfi="/usr/bin/desktop-file-install"
+alias udd="/usr/bin/update-desktop-database"
+
+# pacman
+alias syu="/usr/bin/doas /usr/bin/pacman -Syu"
+alias pis="/usr/bin/doas /usr/bin/pacman -S"
+alias rns="/usr/bin/doas /usr/bin/pacman -Rns"
+alias pss="/usr/bin/pacman -Ss"
+alias psi="/usr/bin/pacman -Si"
+alias pqs="/usr/bin/pacman -Qs"
+alias pqe="/usr/bin/pacman -Qe"
+alias pqi="/usr/bin/pacman -Qi"
+alias Syu="/usr/bin/yay -Syu"
+alias yss="/usr/bin/yay -Ss"
+alias ysi="/usr/bin/yay -Si"
+alias yqs="/usr/bin/yay -Qs"
+alias yqe="/usr/bin/yay -Qe"
+alias yqi="/usr/bin/yay -Qi"
+alias yis="/usr/bin/yay -S"
+alias cache="/usr/bin/doas /usr/bin/pacman -Sc"
+
+# pip
+alias ppi="/usr/bin/pip install"
+alias ppu="/usr/bin/pip uninstall"
+alias ppl="/usr/bin/pip list"
+alias ppc="/usr/bin/pip check"
+alias pps="/usr/bin/pip show"
+
+# git
+alias gs="/usr/bin/git status"
+alias ga="/usr/bin/git add"
+alias gc="/usr/bin/git commit -m"
+alias gp="/usr/bin/git push"
+alias clone="/usr/bin/git clone"
+
+# himalaya mail client
+alias mail=/usr/bin/himalaya
+alias sent="/usr/bin/himalaya -m '[Gmail]/Sent Mail'"
+alias spam="/usr/bin/himalaya -m '[Gmail]/Spam'"
+alias drafts="/usr/bin/himalaya -m '[Gmail]/Drafts'"
+
+# navigation
+alias ..="cd ..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first" 
+alias ...="cd ../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
+alias ..3="cd ../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
+alias ..4="cd ../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
+alias ..5="cd ../../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
+
+# cd
+fcd() {
+cd "$(/usr/bin/find $HOME -type d | fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
+}
+cdd() {
+cd "$(/usr/bin/find . -type d | fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
+}
+
+# grep
+alias gpp="/usr/bin/grep -iIHwrn --color"
+alias gbb="/usr/bin/find $HOME -name '.bash_aliases' | /usr/bin/xargs /usr/bin/grep -iIHn --color"
+
+# clear
+alias cl=/usr/bin/clear
+alias clc="/usr/bin/clear;cd"
+alias cll="/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
+
+# bulk rename
+alias nn="/usr/local/bin/vimv"
+
+# confirm before overwriting something
+alias cp="/usr/bin/cp -vi"
+alias mv="/usr/bin/mv -vi"
+alias rm="/usr/bin/rm -vI"
+alias mkd="/usr/bin/mkdir -vp"
+
+# chown
+alias tt=/usr/bin/touch
+alias modx="/usr/bin/chmod +x"
+alias modu="/usr/bin/chmod -x"
+
+# ls
+alias ls="/usr/bin/exa -lh --group-directories-first"
+alias lsa="/usr/bin/exa -alh --group-directories-first"
+
+# rust alternatives
+alias cat=/usr/bin/bat
+alias rg="/usr/bin/rg -i --colors 'match:fg:green'"
+alias fd="/usr/bin/fd -c always"
+
+# make
+alias mmi="/usr/bin/doas /usr/bin/make clean install"
+alias mmu="/usr/bin/doas /usr/bin/make clean uninstall"
+
+# trash
+alias rmp="/usr/bin/trash put"
+alias rml="/usr/bin/trash list"
+alias rme="/usr/bin/trash empty"
+alias rmt="/usr/bin/trash restore"
+
+# nsxiv
+alias iv="/usr/local/bin/nsxiv -ftraq *"
+alias ivp="/usr/local/bin/nsxiv -ftpraq *"
+
+# mpv
+alias mm="/usr/bin/mpv *.mp4"
+
+# nvim
+alias vi=/usr/bin/nvim
+alias vim=/usr/bin/nvim
+alias svim="/usr/bin/doas /usr/bin/nvim"
+alias vimdiff="/usr/bin/nvim -d"
+
+# which
+alias ww=/usr/bin/which
+
+# ping
+alias pp="/usr/bin/ping 8.8.8.8 -c 5"
+
+# space
+alias du=/usr/bin/ncdu
+alias df="/usr/bin/dust -sp -d 1"
+alias free="/usr/bin/free -h -s 2 -c 5"
+
+# youtube-dl
+alias yt="/usr/bin/yt-dlp --add-metadata -ic"
+alias yta="/usr/bin/yt-dlp --add-metadata -xic"
+alias qq="/usr/bin/torsocks /usr/bin/yt-dlp --add-metadata -ic"
+
+# torrent
+alias torr=/usr/bin/attractorr
+
+# curl
+alias ccc="/usr/bin/curl --remote-name"
+
+# wget
+alias wget=/usr/bin/wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+
+# weather
+alias wttr="/usr/bin/curl wttr.in/$place"
+
+# wiki
+alias wiki="/usr/bin/wiki-search" # search Arch-Wiki
+alias wikk="/usr/bin/wikicurses" # search Wikipedia
+
+# surfraw
+alias sr="/usr/bin/sr duckduckgo"
+
+# checkupdates
+alias cu=/usr/bin/checkupdates
+alias cn="/usr/bin/checkupdates | /usr/bin/wc -l"
+
+# spreadsheet calculator-improved
+alias sc=/usr/bin/sc-im
+
+# neofetch
+alias fetch="$HOME/.local/bin/paleofetch"
