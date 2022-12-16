@@ -1,0 +1,3 @@
+#!/bin/sh
+funcsel=$(/usr/bin/find $HOME/.local/bin -type f | fzf)
+eval $funcsel

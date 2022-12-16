@@ -21,6 +21,9 @@ alias dfv="/usr/bin/desktop-file-validate"
 alias dfi="/usr/bin/desktop-file-install"
 alias udd="/usr/bin/update-desktop-database"
 
+# xdg-dirs
+alias udu="/usr/bin/xdg-user-dirs-update"
+
 # pacman
 alias syu="/usr/bin/doas /usr/bin/pacman -Syu"
 alias pis="/usr/bin/doas /usr/bin/pacman -S"
@@ -76,7 +79,7 @@ cd "$(/usr/bin/find . -type d | fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-di
 
 # grep
 alias gpp="/usr/bin/grep -iIHwrn --color"
-alias gbb="/usr/bin/find $HOME -name '.bash_aliases' | /usr/bin/xargs /usr/bin/grep -iIHn --color"
+alias gbb="/usr/bin/find $XDG_CONFIG_HOME/shell -name aliasrc | /usr/bin/xargs /usr/bin/grep -iIHn --color"
 
 # clear
 alias cl=/usr/bin/clear

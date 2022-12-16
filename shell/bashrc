@@ -1,6 +1,4 @@
-#
-# .bashrc
-#
+#!/bin/bash
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -9,9 +7,9 @@
 
 PS1='[\u@\h \W]\$ '
 
-source /home/ts/.config/shell/profile
-source /home/ts/.config/shell/aliasrc
-source /home/ts/.config/shell/private
-source /home/ts/.config/shell/logout
+source $HOME/.config/shell/profile
+source $HOME/.config/shell/aliasrc
+source $HOME/.config/shell/private
+source $HOME/.config/shell/logout
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
