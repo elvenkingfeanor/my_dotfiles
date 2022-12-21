@@ -52,15 +52,16 @@ alias pps="/usr/bin/pip show"
 # git
 alias gs="/usr/bin/git status"
 alias ga="/usr/bin/git add"
+alias gr="/usr/bin/git rm"
 alias gc="/usr/bin/git commit -m"
 alias gp="/usr/bin/git push"
 alias clone="/usr/bin/git clone"
 
 # himalaya mail client
 alias mail=/usr/bin/himalaya
-alias sent="/usr/bin/himalaya -m '[Gmail]/Sent Mail'"
-alias spam="/usr/bin/himalaya -m '[Gmail]/Spam'"
-alias drafts="/usr/bin/himalaya -m '[Gmail]/Drafts'"
+alias sentm="/usr/bin/himalaya -m '[Gmail]/Sent Mail'"
+alias spamm="/usr/bin/himalaya -m '[Gmail]/Spam'"
+alias draftm="/usr/bin/himalaya -m '[Gmail]/Drafts'"
 
 # navigation
 alias ..="cd ..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first" 
@@ -78,8 +79,11 @@ cd "$(/usr/bin/find . -type d | fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-di
 }
 
 # grep
-alias gpp="/usr/bin/grep -iIHwrn --color"
-alias gbb="/usr/bin/find $XDG_CONFIG_HOME/shell -name aliasrc | /usr/bin/xargs /usr/bin/grep -iIHn --color"
+alias gpp="/usr/bin/grep -iIrn --color"
+alias gdd="/usr/bin/find $HOME -type d | fzf | /usr/bin/sed '$ a \/\*' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard" # select directory for gpp to work on
+alias gss="/usr/bin/find $XDG_CONFIG_HOME/shell -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias gbb="/usr/bin/find $HOME/.local/bin -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias gsss="/usr/bin/find $HOME/repos/suckless -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
 
 # clear
 alias cl=/usr/bin/clear
@@ -120,8 +124,8 @@ alias rme="/usr/bin/trash empty"
 alias rmt="/usr/bin/trash restore"
 
 # nsxiv
-alias iv="/usr/local/bin/nsxiv -ftraq *"
-alias ivp="/usr/local/bin/nsxiv -ftpraq *"
+alias iv="/usr/local/bin/nsxiv -ftraoq * | /usr/bin/sed 's@^@'"$PWD"'\/@'"
+alias ivp="/usr/local/bin/nsxiv -ftpraoq * | /usr/bin/sed 's@^@'"$PWD"'\/@'"
 
 # mpv
 alias mm="/usr/bin/mpv *.mp4"
@@ -144,8 +148,8 @@ alias df="/usr/bin/dust -sp -d 1"
 alias free="/usr/bin/free -h -s 2 -c 5"
 
 # youtube-dl
-alias yt="/usr/bin/yt-dlp --add-metadata -ic"
-alias yta="/usr/bin/yt-dlp --add-metadata -xic"
+alias yt="/usr/bin/yt-dlp -ic"
+alias yta="/usr/bin/yt-dlp -xic"
 alias qq="/usr/bin/torsocks /usr/bin/yt-dlp --add-metadata -ic"
 
 # torrent

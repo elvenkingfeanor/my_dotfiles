@@ -19,8 +19,7 @@ set -o vi
 export PAGER=/usr/bin/less
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
-export READER=/usr/bin/zathura
-export BROWSER=/usr/bin/lynx
+export BROWSER=/usr/bin/netsurf
 
 # keep history file
 set -o history
@@ -32,7 +31,7 @@ unset HISTFILE
 shopt -s histappend
 
 # ignore these commands
-export HISTIGNORE="path:dpath:rpath:tldr:man:vi:vim:nvim:sudo:pss:psi:pqs:pqi:syu:Syu:yss:ysi:yqs:yqi:yt:yta:qq:pp:cl:cll:clc:ls:cd:fcd:ccd:op:opp:cat:less:df:du:free:wall:brtt:batt:sound:mute:vol:vol60:grep:gp:ga:find:sr:lynx:iv:ivp:ivo:mm:nn:torr:sub:wttr:cu:cn"
+export HISTIGNORE="tldr:man:vi:vim:nvim:sudo:pss:psi:pqs:pqi:syu:Syu:yt:yta:qq:pp:cl:cll:clc:ls:cd:fcd:ccd:op:opp:xx:cat:less:df:du:free:brtt:batt:sound:mute:vol:vol70:gbb:gss:gsss:find:sr:iv:ivp:ivo:mm:nn:torr:wttr:cu:cn"
 
 # ignore duplicates
 export HISTCONTROL="ignoredups:erasedups"
@@ -40,7 +39,7 @@ export HISTCONTROL="ignoredups:erasedups"
 # xdg-usr-directories
 export XDG_DOWNLOAD_DIR=$HOME/dl
 export XDG_DOCUMENTS_DIR=$HOME/dox
-export XDG_MUSIC_DIR=$HOME/music
+export XDG_MUSIC_DIR=$HOME/musix
 export XDG_PICTURES_DIR=$HOME/pix
 export XDG_VIDEOS_DIR=$HOME/vids
 export XDG_DESKTOP_DIR=$HOME/
@@ -54,7 +53,7 @@ export XDG_CONFIG_DIRS=/etc/xdg
 export XDG_RUNTIME_DIR=/run/user/$UID
 
 # xdg-ninja
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XAUTHORITY=/tmp/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
