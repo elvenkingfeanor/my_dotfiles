@@ -50,11 +50,11 @@ alias ppc="/usr/bin/pip check"
 alias pps="/usr/bin/pip show"
 
 # git
-alias gs="/usr/bin/git status"
-alias ga="/usr/bin/git add"
-alias gr="/usr/bin/git rm"
-alias gc="/usr/bin/git commit -m"
-alias gp="/usr/bin/git push"
+alias status="/usr/bin/git status"
+alias add="/usr/bin/git add"
+alias remove="/usr/bin/git rm"
+alias commit="/usr/bin/git commit -m"
+alias push="/usr/bin/git push"
 alias clone="/usr/bin/git clone"
 
 # himalaya mail client
