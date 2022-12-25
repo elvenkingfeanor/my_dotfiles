@@ -1,2 +1,0 @@
-#!/bin/sh
-/usr/bin/find $HOME -name '.bash_aliases' | /usr/bin/xargs /usr/bin/grep -iIn --color
