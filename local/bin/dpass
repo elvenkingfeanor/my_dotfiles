@@ -1,0 +1,4 @@
+#!/bin/sh
+
+password=$(/usr/bin/find $XDG_DATA_HOME/pass/ -type f -name '*.gpg' | /usr/bin/dmenu -i -l 10 | sed 's/^.*pass\///g' | sed 's/\.gpg$//g')
+[ -n "$password" ] && pass show -c "$password"

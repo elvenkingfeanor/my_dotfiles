@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/bin/find /tmp/redyt -type f | /usr/bin/xargs /usr/local/bin/nsxiv -ftpaq *
+/usr/bin/find /tmp/redyt -type f | /usr/bin/xargs /usr/local/bin/nsxiv -ftpaoq * | /usr/bin/sed 's@^@'"$PWD"'\/@'

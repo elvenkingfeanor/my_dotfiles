@@ -1,4 +1,57 @@
-# Reddit
+"---odysee---"
+https://odysee.com/$/rss/@metalx1000:c
+https://odysee.com/$/rss/@chrisatmachine:f
+https://odysee.com/$/rss/@AlphaNerd:8
+https://odysee.com/$/rss/@bugswriter:8
+https://odysee.com/$/rss/@gotbletu:b
+https://odysee.com/$/rss/@DistroTube:2
+https://odysee.com/$/rss/@Luke:7
+https://odysee.com/$/rss/@BrodieRobertson:5
+https://odysee.com/$/rss/@hexdsl:7
+https://odysee.com/$/rss/@tuxdigital:a
+https://odysee.com/$/rss/@Coldfusion:f
+https://odysee.com/$/rss/@ScottManley:5
+https://odysee.com/$/rss/@veritasium:f
+https://odysee.com/$/rss/@undecidedmf:a
+https://odysee.com/$/rss/@WildestKrugerSightings:b
+https://odysee.com/$/rss/@Shadiversity:d
+"---asoiaf podcasts---"
+https://feed.podbean.com/notacastasoiaf/feed.xml
+https://feeds.acast.com/public/shows/radiowesteros
+https://anchor.fm/s/1ada9944/podcast/rss
+https://anchor.fm/s/5bcc3e8/podcast/rss
+https://feed.podbean.com/isleoffaces/feed.xml
+https://feed.podbean.com/joemagician/feed.xml
+https://feeds.blubrry.com/feeds/mythicalastronomy.xml
+"---linux podcasts---"
+https://latenightlinux.com/feed/mp3
+https://feeds.fireside.fm/linuxactionnews/rss
+"---tech news---"
+http://rss.slashdot.org/Slashdot/slashdotMain
+http://feeds.arstechnica.com/arstechnica/index
+"---linux news---"
+https://www.phoronix.com/phoronix-rss.php
+https://opensource.com/feed
+http://lxer.com/module/newswire/headlines.rss
+"---linux---"
+https://www.archlinux.org/feeds/news/
+https://archlinux.org/feeds/packages/
+http://suckless.org/atom.xml
+https://distrowatch.com/news/news-headlines.xml
+https://distrowatch.com/news/dwp.xml
+"---blogs---"
+https://georgerrmartin.com/notablog/feed/
+"---tech podcasts---"
+https://feeds.twit.tv/twit.xml
+https://feeds.buzzsprout.com/1947215.rss
+https://fullychargedshow.libsyn.com/rss
+"---sports---"
+https://www.crash.net/rss/f1
+https://www.motorsport.com/rss/f1/news/
+https://audioboom.com/channels/5024396.rss
+https://feeds.megaphone.fm/TAMC9493814495
+https://www.theguardian.com/football/series/footballweekly/podcast.xml
+"---reddit---"
 https://www.reddit.com/r/linux.rss
 https://www.reddit.com/r/bash.rss
 https://www.reddit.com/r/archlinux.rss
@@ -16,60 +69,5 @@ https://www.reddit.com/r/camping.rss
 https://www.reddit.com/r/castiron.rss
 https://www.reddit.com/r/DunderMifflin.rss
 https://www.reddit.com/r/natureismetal.rss
-
-# Tech News
-http://rss.slashdot.org/Slashdot/slashdotMain
-http://feeds.arstechnica.com/arstechnica/index
-https://reclaimthenet.org/feed/
-
-# Linux News
-https://www.phoronix.com/phoronix-rss.php
-https://opensource.com/feed
-http://lxer.com/module/newswire/headlines.rss
-
-# Linux
-https://www.archlinux.org/feeds/news/
-https://archlinux.org/feeds/packages/
-http://suckless.org/atom.xml
-https://distrowatch.com/news/news-headlines.xml
-https://distrowatch.com/news/dwp.xml
-
-# Misc
-https://lukesmith.xyz/rss.xml
-https://scarybeastsecurity.blogspot.com/feeds/posts/default
-https://georgerrmartin.com/notablog/feed/
-
-# ASOIAF Podcasts
-https://feed.podbean.com/notacastasoiaf/feed.xml
-https://feeds.acast.com/public/shows/radiowesteros
-https://anchor.fm/s/1ada9944/podcast/rss
-https://anchor.fm/s/5bcc3e8/podcast/rss
-https://feed.podbean.com/isleoffaces/feed.xml
-https://feed.podbean.com/joemagician/feed.xml
-https://feeds.blubrry.com/feeds/mythicalastronomy.xml
-
-# Linux Podcasts
-https://latenightlinux.com/feed/mp3
-https://feeds.fireside.fm/linuxactionnews/rss
-
-# Tech Podcasts
-https://feeds.twit.tv/twit.xml
-https://feeds.buzzsprout.com/1947215.rss
-https://fullychargedshow.libsyn.com/rss
-
-# Sports
-https://www.crash.net/rss/f1
-https://www.motorsport.com/rss/f1/news/
-https://audioboom.com/channels/5024396.rss
-https://feeds.megaphone.fm/TAMC9493814495
-https://www.theguardian.com/football/series/footballweekly/podcast.xml
-
-# Odysee videos
-https://odysee.com/$/rss/@AlphaNerd:8
-https://odysee.com/$/rss/@DistroTube:2
-https://odysee.com/$/rss/@Luke:7
-https://odysee.com/$/rss/@BrodieRobertson:5
-https://odysee.com/$/rss/@christitustech:5
-https://odysee.com/$/rss/@Coldfusion:f
-https://odysee.com/$/rss/@ScottManley:5
-
+https://www.reddit.com/r/ShittyLifeProTips.rss
+https://www.reddit.com/r/LifeProTips.rss

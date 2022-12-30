@@ -1,5 +1,6 @@
 #!/bin/sh
 
+/usr/bin/touch /tmp/Xauthority
 /usr/bin/xset +fp /usr/local/share/fonts/
 /usr/bin/xrdb -load $XDG_CONFIG_HOME/X11/xresources
 /usr/bin/xset r rate 300 50 &

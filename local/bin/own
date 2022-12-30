@@ -1,2 +1,0 @@
-#!/bin/sh
-/usr/bin/doas /usr/bin/chown $(/usr/bin/echo $(/usr/bin/id -un):$(/usr/bin/id -gn))

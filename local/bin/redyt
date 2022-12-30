@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# Check if necessary programs are installed
-for prog in fzf jq ; do
-	[ ! "$(which "$prog")" ] && echo "Please install $prog!" && exit 1
-done
-
 # args
 while [ $# -gt 0 ]; do
 	case $1 in
@@ -55,7 +50,7 @@ defaultsub="linuxmemes"
 # If no argument is passed
 if [ -z "$subreddit" ]; then
 	# Ask the user to enter a subreddit
-	subreddit=$(fzf < "$configdir/subreddit.txt" | awk -F "|" '{print $1}')
+	subreddit=$(/usr/bin/fzf < "$configdir/subreddit.txt" | awk -F "|" '{print $1}')
 
 	# If no subreddit was chosen, exit
 	[ -z "$subreddit" ] && echo "no sub chosen" && exit 1
@@ -79,7 +74,7 @@ curl -H "User-agent: 'your bot 0.1'" "https://www.reddit.com/r/$subreddit/hot.js
 imgs=$(jq '.' < "$cachedir/tmp.json" | grep url_overridden_by_dest | grep -Eo "http(s|)://.*(jpg|png|gif|mp4)\b" | sort -u)
 
 # If there are no images, exit
-[ -z "$imgs" ] && $notifier "Redyt" "sadly, there are no images for subreddit $subreddit, please try again later!" && exit 1
+[ -z "$imgs" ] && exit 1
 
 # Download images to $cachedir
 for img in $imgs; do

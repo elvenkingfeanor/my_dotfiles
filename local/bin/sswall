@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/bin/find $HOME -type d | fzf | /usr/bin/xargs /usr/local/bin/nsxiv -ftoq *.JPG | /usr/bin/xargs -tI {} /usr/bin/echo '/usr/bin/xwallpaper --zoom {}' > $HOME/.local/bin/swall
+/usr/bin/find $HOME -type d | /usr/bin/fzf | /usr/bin/xargs /usr/local/bin/nsxiv -ftoq *.JPG | /usr/bin/xargs -tI {} /usr/bin/echo '/usr/bin/xwallpaper --zoom {}' > $HOME/.local/bin/swall
