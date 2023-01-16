@@ -44,8 +44,9 @@ application/json=nvim.desktop
 application/x-sc=sc-im.desktop
 image/x-xpixmap=nvim.desktop
 text/troff=nvim.desktop
-application/octet-stream=nvim.desktop
+application/octet-stream=zathura.desktop
 text/x-perl=nvim.desktop
+application/x-lz4+json=nvim.desktop
 
 [Added Associations]
 text/markdown=nvim.desktop

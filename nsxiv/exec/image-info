@@ -1,0 +1,16 @@
+#!/bin/sh
+# Arguments:
+#   $1: path to image file (as provided by the user)
+#   $2: image width
+#   $3: image height
+#   $4: fully resolved path to the image file
+
+s="_" # field separator
+
+exec 2>/dev/null
+
+filename=$(/usr/bin/basename -- "$1")
+filesize=$(/usr/bin/du -Hh -- "$1" | /usr/bin/cut -f 1 )
+geometry="${2}x${3}"
+
+/usr/bin/echo "${filename}${s}${filesize}${s}${geometry}"

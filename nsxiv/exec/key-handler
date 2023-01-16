@@ -1,0 +1,14 @@
+#!/bin/sh
+while read file
+do
+	case "$1" in
+	"w")
+		/usr/bin/xwallpaper --zoom "$file" ;;
+	"d")
+		/usr/bin/mv "$file" "$HOME/.trash" ;;
+	"r")
+		/usr/bin/convert -rotate 90 "$file" "$file" ;;
+	"p")
+		/usr/bin/echo -n "$file" | /usr/bin/xclip -selection clipboard ;;
+	esac
+done

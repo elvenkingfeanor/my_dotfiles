@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "//W3C/DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>NetSurf hotlist</title>
+</head>
+<body>
+<ul>
+<h4>Unsorted entries</h4>
+<ul id="default">
+<li><a href="http://wiby.me/">Wiby - Search Engine for the Classic Web</a></li>
+<li><a href="https://ratfactor.com/dwm">Dave's Visual Guide to dwm - ratfactor</a></li>
+<li><a href="http://www.micronarrativ.org/2019/2019-compile_pictures_with_gnu_pic.html">http://www.micronarrativ.org/2019/2019-compile_pictures_with_gnu_pic.html</a></li>
+<li><a href="https://git.suckless.org/">Repositories</a></li>
+<li><a href="https://git.suckless.org/">Repositories</a></li>
+<li><a href="https://lnag.sourceforge.net/lnag_html/node5.html">Linux Shortcuts and Commands (Highly recommended)</a></li>
+<li><a href="https://github.com/LukeSmithxyz/dwm/blob/master/config.h">dwm/config.h at master · LukeSmithxyz/dwm · GitHub</a></li>
+<li><a href="https://lukesmith.xyz/">Luke's Webpage</a></li>
+<li><a href="https://suckless.org/">software that sucks less | suckless.org software that sucks less</a></li>
+<li><a href="https://spin.atomicobject.com/2018/04/05/fuzzy-find-git-add/">Using Fuzzy-Find to Enhance Git Add</a></li>
+<li><a href="https://noxz.tech/articles/writing_a_resume_in_groff/">https://noxz.tech/articles/writing_a_resume_in_groff/</a></li>
+<li><a href="https://noxz.tech/articles/writing_a_resume_in_groff/">https://noxz.tech/articles/writing_a_resume_in_groff/</a></li>
+<li><a href="http://harmful.cat-v.org/software/">All software sucks</a></li>
+<li><a href="https://dwm.suckless.org/">dwm - dynamic window manager | suckless.org software that sucks less</a></li>
+<li><a href="https://st.suckless.org/">st - simple terminal | suckless.org software that sucks less</a></li>
+<li><a href="https://tools.suckless.org/sent/">tools | suckless.org software that sucks less</a></li>
+<li><a href="https://tools.suckless.org/dmenu/">tools | suckless.org software that sucks less</a></li>
+<li><a href="https://surf.suckless.org/">surf | suckless.org software that sucks less</a></li>
+</ul>
+<h4>NetSurf</h4>
+<ul>
+<li><a href="http://www.netsurf-browser.org/">NetSurf homepage</a></li>
+<li><a href="http://www.netsurf-browser.org/downloads/">Download the latest version</a></li>
+<li><a href="http://www.netsurf-browser.org/documentation">Documentation</a></li>
+<li><a href="http://www.netsurf-browser.org/contact">Contact the NetSurf developers</a></li>
+</ul>
+</ul>
+</body>
+</html>

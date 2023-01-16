@@ -83,7 +83,7 @@ alias gpp="/usr/bin/grep -iIrn --color"
 alias gss="/usr/bin/find $XDG_CONFIG_HOME/shell -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
 alias wss="/usr/bin/find $XDG_CONFIG_HOME/w3m -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
 alias gbb="/usr/bin/find $HOME/.local/bin -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
-alias gsss="/usr/bin/find $HOME/repos/suckless -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias gsss="/usr/bin/find $HOME/gits/suckless -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
 
 # clear
 alias cl=/usr/bin/clear
@@ -125,12 +125,15 @@ alias rme="/usr/bin/trash empty"
 alias rmt="/usr/bin/trash restore"
 
 # nsxiv
-alias iv="/usr/local/bin/nsxiv -ftraoq * | /usr/bin/sed 's@^@'"$PWD"'\/@'"
-alias ivp="/usr/local/bin/nsxiv -ftpraoq * | /usr/bin/sed 's@^@'"$PWD"'\/@'"
+alias iv="/usr/local/bin/nsxiv -ftaoq * | /usr/bin/sed 's@^@'"$PWD"'\/@' | /usr/bin/paste -s -d ' ' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
+alias ivp="/usr/local/bin/nsxiv -ftpaoq * | /usr/bin/sed 's@^@'"$PWD"'\/@' | /usr/bin/paste -s -d ' ' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
 
 # mpv
-alias mmm="/usr/bin/mpv *.mp4"
+alias mmm="/usr/bin/mpv *.mp4 *.mkv"
 alias mm="/usr/bin/mpv"
+
+# thumbnailer
+alias txx="/usr/bin/vcs -i 1m -c 4"
 
 # nvim
 alias vi="/usr/bin/nvim -i NONE"

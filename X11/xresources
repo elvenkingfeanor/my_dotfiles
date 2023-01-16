@@ -34,6 +34,25 @@ XTerm*saveLines: 16384
 !! Double-click to select whole URLs
 XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
+!! URxvt
+URxvt.font: xft:JetBrainsMono:size=12
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 4
+URxvt.cursorBlink: False
+URxvt.cursorUnderline: False
+URxvt.saveline: 2048
+URxvt.scrollBar: False
+URxvt.scrollBar_right: False
+
+!! URxvt Perl Extensions
+URxvt.keysym.Shift.Control.V: eval:paste_clipboard
+URxvt.keysym.Shift.Control.C: eval:selection_to_clipboard
+URxvt.perl-ext-common: default,resize-font
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-equal: resize-font:bigger
+URxvt.keysym.C-0: resize-font:reset
 
 !! COLORS
 
