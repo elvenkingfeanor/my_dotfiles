@@ -4,8 +4,7 @@ confirm-exit no
 player $VIDEO
 browser linkhandler
 refresh-on-startup yes
-cleanup-on-quit yes
-reload-time 20
+reload-time 60
 
 bind-key h quit
 bind-key l open

@@ -1,20 +1,33 @@
 "---odysee---"
-https://odysee.com/$/rss/@metalx1000:c "Kris Occhipinti"
-https://odysee.com/$/rss/@chrisatmachine:f "chris@machine"
-https://odysee.com/$/rss/@AlphaNerd:8 "Mental Outlaw"
-https://odysee.com/$/rss/@bugswriter:8 "Bugswriter"
-https://odysee.com/$/rss/@gotbletu:b "gotbletu"
-https://odysee.com/$/rss/@DistroTube:2 "Distrotube"
-https://odysee.com/$/rss/@Luke:7 "Luke Smith"
-https://odysee.com/$/rss/@BrodieRobertson:5 "Brodie Robertson"
-https://odysee.com/$/rss/@hexdsl:7 "HexDSL"
-https://odysee.com/$/rss/@tuxdigital:a "Tux Digital"
-https://odysee.com/$/rss/@Coldfusion:f "Coldfusion"
-https://odysee.com/$/rss/@ScottManley:5 "Scott Manley"
-https://odysee.com/$/rss/@veritasium:f "Veritaserum"
-https://odysee.com/$/rss/@undecidedmf:a "Undecided with Matt Ferrell"
-https://odysee.com/$/rss/@WildestKrugerSightings:b "Wildest Kruger Sightings"
-https://odysee.com/$/rss/@Shadiversity:d "Shadiversity"
+https://odysee.com/$/rss/@BrodieRobertson:5     "Brodie Robertson"
+https://odysee.com/$/rss/@bugswriter:8          "Bugswriter"
+https://odysee.com/$/rss/@chrisatmachine:f      "chris@machine"
+https://odysee.com/$/rss/@Coldfusion:f          "Coldfusion"
+https://odysee.com/$/rss/@DenshiVideo:f         "DenshiVideo"
+https://odysee.com/$/rss/@DistroTube:2          "Distrotube"
+https://odysee.com/$/rss/@ericnmurphy:9         "Eric Murphy"
+https://odysee.com/$/rss/@gotbletu:b            "gotbletu"
+https://odysee.com/$/rss/@hexdsl:7              "HexDSL"
+https://odysee.com/$/rss/@metalx1000:c          "Kris Occhipinti"
+https://odysee.com/$/rss/@Luke:7                "Luke Smith"
+https://odysee.com/$/rss/@AlphaNerd:8           "Mental Outlaw"
+https://odysee.com/$/rss/@ScottManley:5         "Scott Manley"
+https://odysee.com/$/rss/@Shadiversity:d        "Shadiversity"
+https://odysee.com/$/rss/@SystemCrafters:e      "System Crafters"
+https://odysee.com/$/rss/@TheLinuxExperiment:e  "The Linux Experiment"
+https://odysee.com/$/rss/@Trafotin:4            "Trafotin"
+https://odysee.com/$/rss/@veritasium:f          "Veritaserum"
+https://odysee.com/$/rss/@undecidedmf:a         "Undecided with Matt Ferrell"
+https://odysee.com/$/rss/@WildestKrugerSightings:b  "Wildest Kruger Sightings"
+"---blogs---"
+https://georgerrmartin.com/notablog/feed/
+https://stallman.org/rss/rss.xml
+https://lukesmith.xyz/index.xml
+https://drewdevault.com/blog/index.xml
+https://opensourcemusings.com/feed/
+https://feeds.feedburner.com/mrmoneymustache
+https://tynan.com/feed/
+https://karl-voit.at/feeds/lazyblorg-all.atom_1.0.links-only.xml
 "---tech news---"
 http://rss.slashdot.org/Slashdot/slashdotMain
 http://feeds.arstechnica.com/arstechnica/index
@@ -22,14 +35,11 @@ http://feeds.arstechnica.com/arstechnica/index
 https://www.phoronix.com/phoronix-rss.php
 https://opensource.com/feed
 http://lxer.com/module/newswire/headlines.rss
-"---linux---"
-https://www.archlinux.org/feeds/news/
-https://archlinux.org/feeds/packages/
-http://suckless.org/atom.xml
-https://distrowatch.com/news/news-headlines.xml
-https://distrowatch.com/news/dwp.xml
-"---blogs---"
-https://georgerrmartin.com/notablog/feed/
+"---current affairs---"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXYlvedl-rPPCvJHxV64Yqw "Note Book"
+"---youtube sports---"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkBY0aHJP9BwjZLDYxAQrKg "cricket.com.au"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCB_qr75-ydFVKSF9Dmo6izg "FORMULA1"
 "---youtube asoiaf---"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCXNXT2MxtKPhsBmhFWE6xsg "David Lightbringer"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCiYwENpLDO4gyB4dBrMYrjQ "History of Westeros"
@@ -38,7 +48,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCmt3Gk_O-KAJpn6J5bsMqhw "Is
 https://www.youtube.com/feeds/videos.xml?channel_id=UCHmkKXQMT3SBBzmPQAbgMog "Joe Magician"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCmmDfPdGXJ8LLpPuD0zUOnw "NotACastPodcast"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCEYEAoXMCXS8e-L9yJDSD7Q "Radio Westeros"
-
 "---youtube wild---"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCwmZiChSryoWQCZMIQezgTg "BBC Earth"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCXSVZTsqJn5JjN0h5q5_B_Q "Coalcracker Bushcraft"
@@ -47,14 +56,25 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCry5EFdbEMavAhQZht_nVbw "Ma
 https://www.youtube.com/feeds/videos.xml?channel_id=UC_rI3y1DzDULTr-UIvshiwg "Pack Hacker"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCwZcNfPpV9CXSVbpH1ckVmw "REI"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCpmbA7yNOl7aTj_ffkaWWag "TheOutdoorGearReview"
+"---youtube space---"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6uKrU_WqJ1R2HMTY3LIx5Q "Everyday Astronaut"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBNHHEoiSF8pcLgqLKVugOw "Marcus House"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSUu1lih2RifWkKtDOJdsBA "NASASpaceflight"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCxzC4EngIsMrPmbm6Nxvb-A "Scott Manley"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeQYemGBA3zkt2WY5dpRxsw "TMRO Space News"
+"---linux---"
+https://www.archlinux.org/feeds/news/
+https://archlinux.org/feeds/packages/
+http://suckless.org/atom.xml
+https://distrowatch.com/news/news-headlines.xml
+https://distrowatch.com/news/dwp.xml
+"---youtube news---"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9YivGoN6UKWkl0k-8G1qyQ "Hothat Jodi Uthlo Kotha"
 "---youtube tech---"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A "Coldfusion"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCFLFc8Lpbwt4jPtY1_Ai5yA "LMG Clips"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCl2mFZoRqjw_ELax4Yisf6w "Louis Rossmann"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCwY9B5_8QDGP8niZhBtTh8w "TWiT Tech Podcast Network"
-"---youtube sports---"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCkBY0aHJP9BwjZLDYxAQrKg "cricket.com.au"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCB_qr75-ydFVKSF9Dmo6izg "FORMULA1"
 "---youtube food---"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCkj1SmNfhyhUDxZO7VvWB0A "Adnan Faruque"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCcAd5Np7fO8SeejB1FVKcYw "Best Ever Food Review Show"
@@ -64,12 +84,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCByoEPQbSxyB7PGFDmqtHwQ "Fo
 https://www.youtube.com/feeds/videos.xml?channel_id=UCyEd6QBSgat5kkC6svyjudA "Mark Wiens"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC6IFwh0R3xkv-S0lnDioxHA "Rumanar Ranna"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2FrqldzfmxVaOzOqSqIZYg "Spice Bangla"
-"---youtube space---"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC6uKrU_WqJ1R2HMTY3LIx5Q "Everyday Astronaut"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCBNHHEoiSF8pcLgqLKVugOw "Marcus House"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCSUu1lih2RifWkKtDOJdsBA "NASASpaceflight"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCxzC4EngIsMrPmbm6Nxvb-A "Scott Manley"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCeQYemGBA3zkt2WY5dpRxsw "TMRO Space News"
 "---youtube future---"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCzz4CoEgSgWNs9ZAvRMhW2A "Fully Charged Show"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCj--iMtToRO_cGG_fpmP5XQ "Munro Live"
@@ -84,8 +98,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC4sEmXUuWIFlxRIFBRV6VXQ "Th
 https://www.youtube.com/feeds/videos.xml?channel_id=UCvagRZi_ro7U3yKsgCkvP1A "The Man in Seat 61"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9RM-iSvTu1uPJb8X5yp3EQ "Wendover Productions"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCZngXT1NhsK3pSvw2xQNtUw "West Bengal with Rohit"
-"---youtube news---"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC9YivGoN6UKWkl0k-8G1qyQ "Hothat Jodi Uthlo Kotha"
 "---asoiaf podcasts---"
 https://feed.podbean.com/notacastasoiaf/feed.xml "NotACastPodcast"
 https://feeds.acast.com/public/shows/radiowesteros "Radio Westeros"
@@ -101,7 +113,7 @@ https://feeds.fireside.fm/linuxactionnews/rss
 https://feeds.twit.tv/twit.xml
 https://feeds.buzzsprout.com/1947215.rss
 https://fullychargedshow.libsyn.com/rss
-"---sports---"
+"---sports podcasts---"
 https://www.crash.net/rss/f1
 https://www.motorsport.com/rss/f1/news/
 https://audioboom.com/channels/5024396.rss
@@ -131,7 +143,10 @@ https://www.reddit.com/r/LifeProTips.rss
 https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "Brodie Robertson"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCOSqzSTg4QZXdi7jvV-9rUg "Bryce Vandegrift"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw "Bugswriter"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ "Chris Titus Tech"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCNwGa76xVVwdEVToRZBIUIg "DenshiVideo"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "DistroTube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5KDiSAFxrDWhmysBcNqtMA "Eric Murphy"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCkf4VIqu3Acnfzuk3kRIFwA "gotbletu"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCRE3NFNtdjR96-H4QG4U1Fg "Hex DSL"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCf93fPKwotph47H3_KDcRyg "Kris Occhipinti"
@@ -139,5 +154,5 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCJWAqA9DzA1bHwCd0TOUWsw "La
 https://www.youtube.com/feeds/videos.xml?channel_id=UCxQKHvKbmSzGMvUrVtJYnUA "Learn Linux TV"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "Luke Smith"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "Mental Outlaw"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5U7mHlhP6s6478wd7ZvnhA "Trafotin"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC1d_1egvm6BjuRz7qcCuoNA "Tuff Gniuz"
-

@@ -13,19 +13,23 @@ map('n', '<C-Q>', '<CMD>q<CR>')
 map('n', '<leader>o', 'o<ESC>')
 map('n', '<leader>O', 'O<ESC>')
 
--- move to next/previous/last buffer
-map('n', '<leader>[', '<CMD>bp<CR>')
-map('n', '<leader>]', '<CMD>bn<CR>')
-map('n', "''", '<CMD>b#<CR>')
-
 -- move line up/down
 map('n', '<A-J>', '<CMD>move .+1<CR>')
 map('n', '<A-K>', '<CMD>move .-2<CR>')
 
--- splits
-map('n', '<leader>h', '<CMD>split<CR>')
-map('n', '<leader>H', '<CMD>vsplit<CR>')
+-- move to next/previous/last buffer
+map('n', '<leader>h', '<CMD>bp<CR>')
+map('n', '<leader>l', '<CMD>bn<CR>')
+map('n', "''", '<CMD>b#<CR>')
 
--- NvimTree/Telescope
-map('n', '<leader>t', '<CMD>Telescope<CR>')
-map('n', '<leader>T', '<CMD>NvimTreeToggle<CR>')
+-- splits
+map('n', '<leader>s', '<CMD>split<CR>')
+map('n', '<leader>S', '<CMD>vsplit<CR>')
+
+-- tabs
+map('n', '<C-t>', '<CMD>tabnew<CR>')
+map('n', '<leader>t', '<CMD>tabnext<CR>')
+map('n', '<leader>T', '<CMD>tabprev<CR>')
+
+-- Telescope
+map('n', '<leader>f', '<CMD>Telescope find_files hidden=true<CR>')

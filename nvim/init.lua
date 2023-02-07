@@ -1,6 +1,4 @@
 require('settings')
 require('mappings')
 require('packer-config')
-require('nvim-tree-config')
 require('telescope-config')
-require('treesitter-config')

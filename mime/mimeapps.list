@@ -47,6 +47,8 @@ text/troff=nvim.desktop
 application/octet-stream=zathura.desktop
 text/x-perl=nvim.desktop
 application/x-lz4+json=nvim.desktop
+application/x-executable=nvim.desktop
+text/x-script.python=nvim.desktop
 
 [Added Associations]
 text/markdown=nvim.desktop

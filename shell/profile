@@ -73,6 +73,7 @@ export CALCHISTFILE="$XDG_CACHE_HOME"/calc_history
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export LESSHISTFILE="$XDG_DATA_HOME"/lesshst
 export W3M_DIR="$XDG_CONFIG_HOME"/w3m
+export ANTIWORDHOME="$XDG_DOWNLOAD_DIR"/antiword
 
 # add custom folder to Path
 export PATH="${PATH}:$HOME/.local/bin"

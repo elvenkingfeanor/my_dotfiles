@@ -1,7 +1,8 @@
 " Options
 set adblocker=static
 set cache=clearonquit
-set noclearcookiesonquit
+"set noclearcookiesonquit
+set clearcookiesonquit
 set nocleardownloadsoncompleted
 set nocleardownloadsonquit
 set clearhistoryonquit=true

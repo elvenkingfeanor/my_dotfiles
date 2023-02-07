@@ -59,9 +59,9 @@ alias clone="/usr/bin/git clone"
 
 # himalaya mail client
 alias mail=/usr/bin/himalaya
-alias sentm="/usr/bin/himalaya -m '[Gmail]/Sent Mail'"
-alias spamm="/usr/bin/himalaya -m '[Gmail]/Spam'"
-alias draftm="/usr/bin/himalaya -m '[Gmail]/Drafts'"
+alias sentm="/usr/bin/himalaya -f '[Gmail]/Sent Mail'"
+alias spamm="/usr/bin/himalaya -f '[Gmail]/Spam'"
+alias draftm="/usr/bin/himalaya -f '[Gmail]/Drafts'"
 
 # navigation
 alias ..="cd ..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first" 
@@ -77,6 +77,9 @@ cd "$(/usr/bin/find $HOME -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -
 cdd() {
 cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
 }
+
+# find
+alias fff="/usr/bin/find $HOME . > /dev/null"
 
 # grep
 alias gpp="/usr/bin/grep -iIrn --color"
@@ -128,6 +131,9 @@ alias rmt="/usr/bin/trash restore"
 alias iv="/usr/local/bin/nsxiv -ftaoq * | /usr/bin/sed 's@^@'"$PWD"'\/@' | /usr/bin/paste -s -d ' ' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
 alias ivp="/usr/local/bin/nsxiv -ftpaoq * | /usr/bin/sed 's@^@'"$PWD"'\/@' | /usr/bin/paste -s -d ' ' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
 
+# newsboat
+alias nnn="/usr/bin/newsboat -x reload"
+
 # mpv
 alias mmm="/usr/bin/mpv *.mp4 *.mkv"
 alias mm="/usr/bin/mpv"
@@ -138,12 +144,12 @@ alias txx="/usr/bin/vcs -i 1m -c 4"
 # nvim
 alias vi="/usr/bin/nvim -i NONE"
 alias vim="/usr/bin/nvim -i NONE"
-alias svim="/usr/bin/doas /usr/bin/nvim"
+alias svim=/usr/bin/doasedit
 alias vdiff="/usr/bin/nvim -d"
 alias vimdiff="/usr/bin/nvim -d"
 
-# which
-alias ww=/usr/bin/which
+# whereis
+alias ww=/usr/bin/whereis
 
 # ping
 alias ping="/usr/bin/ping 8.8.8.8 -c 5"
@@ -156,7 +162,7 @@ alias free="/usr/bin/free -h -s 2 -c 5"
 # youtube-dl
 alias yt="/usr/bin/yt-dlp -ic"
 alias yta="/usr/bin/yt-dlp -xic"
-alias qq="/usr/bin/torsocks /usr/bin/yt-dlp --add-metadata -ic"
+alias qq="/usr/bin/torsocks /usr/bin/yt-dlp -ic"
 
 # torrent
 alias torr=/usr/bin/attractorr
@@ -165,7 +171,7 @@ alias torr=/usr/bin/attractorr
 alias ccc="/usr/bin/curl --remote-name"
 
 # wget
-alias wget=/usr/bin/wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias wget="/usr/bin/wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 # weather
 alias wttr="/usr/bin/curl wttr.in/$place"
@@ -189,3 +195,14 @@ alias sc=/usr/bin/sc-im
 
 # neofetch
 alias fetch="$HOME/.local/bin/paleofetch"
+
+# mocp
+alias mocp="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
+
+# autopaper
+alias paper="cd $XDG_DOWNLOAD_DIR/autopaper && /usr/bin/python3 $HOME/.local/bin/autopaper"
+
+# simple-mtpfs
+alias mtll="/usr/bin/simple-mtpfs -l"
+alias mtmm="/usr/bin/simple-mtpfs --device 1 $XDG_DOWNLOAD_DIR/mtp"
+alias mtuu="/usr/bin/fusermount -uz $XDG_DOWNLOAD_DIR/mtp"
