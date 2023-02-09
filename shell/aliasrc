@@ -155,8 +155,10 @@ alias ww=/usr/bin/whereis
 alias ping="/usr/bin/ping 8.8.8.8 -c 5"
 
 # space
-alias du=/usr/bin/ncdu
-alias df="/usr/bin/dust -sp -d 1"
+alias du=/usr/bin/dua
+alias df="/usr/bin/df -h"
+alias ndu=/usr/bin/ncdu
+alias dust="/usr/bin/dust -sp -d 1"
 alias free="/usr/bin/free -h -s 2 -c 5"
 
 # youtube-dl
@@ -196,13 +198,32 @@ alias sc=/usr/bin/sc-im
 # neofetch
 alias fetch="$HOME/.local/bin/paleofetch"
 
+# assistant
+alias sss=/usr/local/bin/oi
+
 # mocp
-alias mocp="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
+alias moc="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
 
 # autopaper
 alias paper="cd $XDG_DOWNLOAD_DIR/autopaper && /usr/bin/python3 $HOME/.local/bin/autopaper"
+
+# cron
+alias cronl="/usr/bin/crontab -l"
+alias crone="/usr/bin/crontab -e"
 
 # simple-mtpfs
 alias mtll="/usr/bin/simple-mtpfs -l"
 alias mtmm="/usr/bin/simple-mtpfs --device 1 $XDG_DOWNLOAD_DIR/mtp"
 alias mtuu="/usr/bin/fusermount -uz $XDG_DOWNLOAD_DIR/mtp"
+
+# when & task
+alias wwww="/usr/bin/when i"
+alias wwwe="/usr/bin/when e"
+alias ttt=/usr/bin/task
+alias tte="/usr/bin/task add"
+
+# studyflash
+alias sffn="/usr/bin/studyflash new"
+alias sffa="/usr/bin/studyflash add"
+alias sffe="/usr/bin/studyflash edit"
+alias sffs="/usr/bin/studyflash study"
