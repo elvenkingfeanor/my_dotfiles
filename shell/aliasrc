@@ -24,6 +24,9 @@ alias udd="/usr/bin/update-desktop-database"
 # xdg-dirs
 alias udu="/usr/bin/xdg-user-dirs-update"
 
+# xrdb
+alias xxx="/usr/bin/xrdb $XDG_CONFIG_HOME/X11/xresources"
+
 # pacman
 alias syu="/usr/bin/doas /usr/bin/pacman -Syu"
 alias pis="/usr/bin/doas /usr/bin/pacman -S"
@@ -210,6 +213,15 @@ alias paper="cd $XDG_DOWNLOAD_DIR/autopaper && /usr/bin/python3 $HOME/.local/bin
 # cron
 alias cronl="/usr/bin/crontab -l"
 alias crone="/usr/bin/crontab -e"
+alias cronc="/usr/bin/cp /var/spool/cron/ts -t $XDG_CONFIG_HOME/crond/"
+
+# mounting & unmounting
+alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/exa -alh --group-directories-first"
+alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/exa -alh --group-directories-first"
+alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/exa -alh --group-directories-first"
+alias bbu="/usr/bin/doas /usr/bin/umount /dev/sdb1"
+alias ccu="/usr/bin/doas /usr/bin/umount /dev/sdc1"
+alias ddu="/usr/bin/doas /usr/bin/umount /dev/sdd1"
 
 # simple-mtpfs
 alias mtll="/usr/bin/simple-mtpfs -l"
@@ -227,3 +239,7 @@ alias sffn="/usr/bin/studyflash new"
 alias sffa="/usr/bin/studyflash add"
 alias sffe="/usr/bin/studyflash edit"
 alias sffs="/usr/bin/studyflash study"
+
+# formatting
+alias fat="/usr/bin/mkfs.vfat -F 32 /dev/sd" # additionally specify, -i VOLUME_ID
+alias ext="/usr/bin/mkfs.ext4 /dev/sd" # additionally specify, -L volume_label

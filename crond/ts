@@ -1,5 +1,5 @@
-@reboot /usr/bin/find $HOME > /dev/null
+@reboot /usr/bin/find $HOME . > /dev/null
 5 * * * * /usr/bin/newsboat -x reload
 @reboot /usr/bin/newsboat -x reload
-15 12 * * * cd ~/dl/autopaper && /usr/bin/python3 ~/.local/bin/autopaper
+15 */2 * * * cd ~/dl/autopaper && /usr/bin/python3 ~/.local/bin/autopaper
 @reboot /usr/bin/sleep 300 && cd ~/dl/autopaper && /usr/bin/python3 ~/.local/bin/autopaper
