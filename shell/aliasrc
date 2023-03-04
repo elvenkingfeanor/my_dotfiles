@@ -60,12 +60,6 @@ alias commit="/usr/bin/git commit -m"
 alias push="/usr/bin/git push"
 alias clone="/usr/bin/git clone"
 
-# himalaya mail client
-alias mail=/usr/bin/himalaya
-alias sentm="/usr/bin/himalaya -f '[Gmail]/Sent Mail'"
-alias spamm="/usr/bin/himalaya -f '[Gmail]/Spam'"
-alias draftm="/usr/bin/himalaya -f '[Gmail]/Drafts'"
-
 # navigation
 alias ..="cd ..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first" 
 alias ...="cd ../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
@@ -105,8 +99,12 @@ alias mv="/usr/bin/mv -vi"
 alias rm="/usr/bin/rm -vI"
 alias mkd="/usr/bin/mkdir -vp"
 
+# grub
+alias grubi="/usr/bin/doas /usr/bin/grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub-uefi --recheck"
+alias grubm="/usr/bin/doas /usr/bin/grub-mkconfig -o /boot/grub/grub.cfg"
+
 # chown
-alias tt=/usr/bin/touch
+alias ttt=/usr/bin/touch
 alias modx="/usr/bin/chmod +x"
 alias modu="/usr/bin/chmod -x"
 alias own="/usr/bin/doas /usr/bin/chown $(/usr/bin/echo $(/usr/bin/id -un):$(/usr/bin/id -gn))"
@@ -191,6 +189,15 @@ alias sr="/usr/bin/sr duckduckgo"
 # w3m
 alias www="/usr/bin/w3m -config $XDG_CONFIG_HOME/w3m/config"
 
+# mail
+alias mail=/usr/bin/neomutt
+
+# abook
+alias abook="/usr/bin/abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook"
+
+# mbsync
+alias mbsync="/usr/bin/mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+
 # checkupdates
 alias cu=/usr/bin/checkupdates
 alias cn="/usr/bin/checkupdates | /usr/bin/wc -l"
@@ -223,23 +230,32 @@ alias bbu="/usr/bin/doas /usr/bin/umount /dev/sdb1"
 alias ccu="/usr/bin/doas /usr/bin/umount /dev/sdc1"
 alias ddu="/usr/bin/doas /usr/bin/umount /dev/sdd1"
 
+# formatting
+fat() {
+/usr/bin/mkfs.vfat -F 32 /dev/sd"$1"
+} # additionally specify, -i VOLUME_ID
+ext () {
+/usr/bin/mkfs.ext4 /dev/sd"$1"
+} # additionally specify, -L volume_label
+
 # simple-mtpfs
 alias mtll="/usr/bin/simple-mtpfs -l"
 alias mtmm="/usr/bin/simple-mtpfs --device 1 $XDG_DOWNLOAD_DIR/mtp"
 alias mtuu="/usr/bin/fusermount -uz $XDG_DOWNLOAD_DIR/mtp"
 
 # when & task
-alias wwww="/usr/bin/when i"
-alias wwwe="/usr/bin/when e"
-alias ttt=/usr/bin/task
-alias tte="/usr/bin/task add"
+alias cal=/usr/bin/when
+alias calm="/usr/bin/when m"
+alias caly="/usr/bin/when y"
+alias cale="/usr/bin/when e"
+alias todo=/usr/bin/task
+alias tt=/usr/bin/task
+alias tta="/usr/bin/task add"
+alias tte="/usr/bin/task edit"
+alias ttu="/usr/bin/task undo"
 
 # studyflash
 alias sffn="/usr/bin/studyflash new"
 alias sffa="/usr/bin/studyflash add"
 alias sffe="/usr/bin/studyflash edit"
 alias sffs="/usr/bin/studyflash study"
-
-# formatting
-alias fat="/usr/bin/mkfs.vfat -F 32 /dev/sd" # additionally specify, -i VOLUME_ID
-alias ext="/usr/bin/mkfs.ext4 /dev/sd" # additionally specify, -L volume_label
