@@ -44,6 +44,9 @@ alias yqe="/usr/bin/yay -Qe"
 alias yqi="/usr/bin/yay -Qi"
 alias yis="/usr/bin/yay -S"
 alias cache="/usr/bin/doas /usr/bin/pacman -Sc"
+name() {
+/usr/bin/pacman -Qlq "$1" | /usr/bin/grep /usr/bin/
+}
 
 # pip
 alias ppi="/usr/bin/pip install"
@@ -77,6 +80,9 @@ cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh -
 
 # find
 alias fff="/usr/bin/find $HOME . > /dev/null"
+ff() {
+/usr/bin/find . -type "$1" -iname "$2"
+}
 
 # grep
 alias gpp="/usr/bin/grep -iIrn --color"
@@ -95,9 +101,13 @@ alias nn="/usr/local/bin/vimv"
 
 # confirm before overwriting something
 alias cp="/usr/bin/cp -vi"
+alias ccp="/usr/bin/doas /usr/bin/cp -vi"
 alias mv="/usr/bin/mv -vi"
+alias mmv="/usr/bin/doas /usr/bin/mv -vi"
 alias rm="/usr/bin/rm -vI"
+alias rrm="/usr/bin/doas /usr/bin/rm -vI"
 alias mkd="/usr/bin/mkdir -vp"
+alias mmkd="/usr/bin/doas /usr/bin/mkdir -vp"
 
 # grub
 alias grubi="/usr/bin/doas /usr/bin/grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub-uefi --recheck"
@@ -113,6 +123,12 @@ alias own="/usr/bin/doas /usr/bin/chown $(/usr/bin/echo $(/usr/bin/id -un):$(/us
 alias ls="/usr/bin/exa -lh --group-directories-first"
 alias lsa="/usr/bin/exa -alh --group-directories-first"
 
+# tree
+alias tree1="/usr/bin/tree -d -L 1"
+alias tree2="/usr/bin/tree -d -L 2"
+alias tree3="/usr/bin/tree -d -L 3"
+alias tree4="/usr/bin/tree -d -L 4"
+
 # rust alternatives
 alias cat=/usr/bin/bat
 alias rg="/usr/bin/rg -i --colors 'match:fg:green'"
@@ -121,6 +137,9 @@ alias fd="/usr/bin/fd -c always"
 # make
 alias mmi="/usr/bin/doas /usr/bin/make clean install"
 alias mmu="/usr/bin/doas /usr/bin/make clean uninstall"
+
+# kill
+alias kill="/usr/bin/kill -9"
 
 # trash
 alias rmp="/usr/bin/trash put"
@@ -162,13 +181,23 @@ alias ndu=/usr/bin/ncdu
 alias dust="/usr/bin/dust -sp -d 1"
 alias free="/usr/bin/free -h -s 2 -c 5"
 
-# youtube-dl
+# ytdl
 alias yt="/usr/bin/yt-dlp -ic"
 alias yta="/usr/bin/yt-dlp -xic"
 alias qq="/usr/bin/torsocks /usr/bin/yt-dlp -ic"
 
+# spotdl
+alias spot="cd $XDG_DOWNLOAD_DIR/spotdl && ~/.local/bin/spotdl"
+
 # torrent
 alias torr=/usr/bin/attractorr
+
+# autopaper
+alias paper="cd $XDG_DOWNLOAD_DIR/autopaper && $HOME/.local/bin/rust_autopaper"
+
+# libg
+alias booka="cd $XDG_DOWNLOAD_DIR/libg && $HOME/.local/bin/libg -b author"
+alias bookt="cd $XDG_DOWNLOAD_DIR/libg && $HOME/.local/bin/libg -b title"
 
 # curl
 alias ccc="/usr/bin/curl --remote-name"
@@ -190,19 +219,20 @@ alias sr="/usr/bin/sr duckduckgo"
 alias www="/usr/bin/w3m -config $XDG_CONFIG_HOME/w3m/config"
 
 # mail
-alias mail=/usr/bin/neomutt
+alias mail="/usr/bin/mbsync -a -c $XDG_CONFIG_HOME/isync/mbsyncrc && /usr/bin/neomutt"
 
 # abook
 alias abook="/usr/bin/abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook"
 
 # mbsync
 alias mbsync="/usr/bin/mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+alias sync="/usr/bin/mbsync -a -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 
 # checkupdates
 alias cu=/usr/bin/checkupdates
 alias cn="/usr/bin/checkupdates | /usr/bin/wc -l"
 
-# spreadsheet calculator-improved
+# scim
 alias sc=/usr/bin/sc-im
 
 # neofetch
@@ -214,9 +244,6 @@ alias sss=/usr/local/bin/oi
 # mocp
 alias moc="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
 
-# autopaper
-alias paper="cd $XDG_DOWNLOAD_DIR/autopaper && /usr/bin/python3 $HOME/.local/bin/autopaper"
-
 # cron
 alias cronl="/usr/bin/crontab -l"
 alias crone="/usr/bin/crontab -e"
@@ -226,17 +253,22 @@ alias cronc="/usr/bin/cp /var/spool/cron/ts -t $XDG_CONFIG_HOME/crond/"
 alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/exa -alh --group-directories-first"
 alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/exa -alh --group-directories-first"
 alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/exa -alh --group-directories-first"
-alias bbu="/usr/bin/doas /usr/bin/umount /dev/sdb1"
-alias ccu="/usr/bin/doas /usr/bin/umount /dev/sdc1"
-alias ddu="/usr/bin/doas /usr/bin/umount /dev/sdd1"
+alias bbu="cd && /usr/bin/doas /usr/bin/umount /dev/sdb1"
+alias ccu="cd && /usr/bin/doas /usr/bin/umount /dev/sdc1"
+alias ddu="cd && /usr/bin/doas /usr/bin/umount /dev/sdd1"
 
 # formatting
 fat() {
-/usr/bin/mkfs.vfat -F 32 /dev/sd"$1"
+/usr/bin/doas /usr/bin/mkfs.vfat -F 32 /dev/sd"$1"
 } # additionally specify, -i VOLUME_ID
 ext () {
-/usr/bin/mkfs.ext4 /dev/sd"$1"
+/usr/bin/doas /usr/bin/mkfs.ext4 /dev/sd"$1"
 } # additionally specify, -L volume_label
+
+# dd
+ddx() {
+/usr/bin/doas /usr/bin/dd if="$1" of=/dev/sd"$2" bs=1M status=progress
+}
 
 # simple-mtpfs
 alias mtll="/usr/bin/simple-mtpfs -l"
@@ -259,3 +291,15 @@ alias sffn="/usr/bin/studyflash new"
 alias sffa="/usr/bin/studyflash add"
 alias sffe="/usr/bin/studyflash edit"
 alias sffs="/usr/bin/studyflash study"
+
+# transmission-cli
+alias tmd=/usr/bin/transmission-daemon
+alias tma="/usr/bin/transmission-remote --add"
+alias tml="/usr/bin/transmission-remote --list"
+alias tmt="/usr/bin/transmission-remote --torrent"
+alias tmf="/usr/bin/transmission-remote --files"
+alias tmg="/usr/bin/transmission-remote --get"
+alias tms="/usr/bin/transmission-remote --start"
+alias tmS="/usr/bin/transmission-remote --stop"
+alias tmr="/usr/bin/transmission-remote --remove"
+alias tme="/usr/bin/transmission-remote --exit"

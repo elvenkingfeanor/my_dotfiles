@@ -9,10 +9,6 @@ map('n', '<leader>W', '<CMD>wall<CR>')
 -- quit nvim
 map('n', '<C-Q>', '<CMD>q<CR>')
 
--- leader-o/O inserts blank line below/above
-map('n', '<leader>o', 'o<ESC>')
-map('n', '<leader>O', 'O<ESC>')
-
 -- move line up/down
 map('n', '<A-J>', '<CMD>move .+1<CR>')
 map('n', '<A-K>', '<CMD>move .-2<CR>')

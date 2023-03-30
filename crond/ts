@@ -1,5 +1,10 @@
+SHELL=/bin/bash
+DISPLAY=:0
 @reboot /usr/bin/find $HOME . > /dev/null
-5 * * * * /usr/bin/newsboat -x reload
-@reboot /usr/bin/newsboat -x reload
-15 */2 * * * cd ~/dl/autopaper && /usr/bin/python3 ~/.local/bin/autopaper
-@reboot /usr/bin/sleep 300 && cd ~/dl/autopaper && /usr/bin/python3 ~/.local/bin/autopaper
+0 * * * * /usr/bin/find $HOME . > /dev/null
+@reboot /usr/bin/sleep 45 && /usr/bin/newsboat -x reload
+10 * * * * /usr/bin/newsboat -x reload
+@reboot source ~/.config/X11/xdbus; /usr/bin/sleep 60 && /usr/bin/notify-send "updates available $(/usr/bin/checkupdates | /usr/bin/wc -l)"
+5 * * * * source ~/.config/X11/xdbus; /usr/bin/notify-send "updates available $(/usr/bin/checkupdates | /usr/bin/wc -l)"
+@reboot /usr/bin/sleep 60 && cd ~/dl/autopaper && ~/.local/bin/rust_autopaper
+15 */2 * * * cd ~/dl/autopaper && ~/.local/bin/rust_autopaper

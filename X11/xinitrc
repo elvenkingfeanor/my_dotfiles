@@ -7,6 +7,7 @@ source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 /usr/bin/xset r rate 300 50 &
 /usr/bin/unclutter &
 /usr/local/bin/slstatus >/dev/null 2>&1 &
+$HOME/.local/bin/xinfo &
 $HOME/.local/bin/swall &
 exec /usr/local/bin/st &
 

@@ -68,7 +68,7 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export CARGOHOME="$XDG_DATA_HOME"/cargo
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CALCHISTFILE="$XDG_CACHE_HOME"/calc_history
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export LESSHISTFILE="$XDG_DATA_HOME"/lesshst
@@ -79,7 +79,7 @@ export ANTIWORDHOME="$XDG_DOWNLOAD_DIR"/antiword
 export PATH="${PATH}:$HOME/.local/bin"
 
 # fzf defaults
-export FZF_DEFAULT_OPTS="--cycle --height 55%"
+export FZF_DEFAULT_OPTS="--cycle --height 10%"
 
 # define Home for any web browser
 export WWW_HOME="https://duckduckgo.com"

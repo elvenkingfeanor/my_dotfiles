@@ -45,14 +45,28 @@ URxvt.cursorUnderline: False
 URxvt.saveline: 2048
 URxvt.scrollBar: False
 URxvt.scrollBar_right: False
+URxvt.underlineURLs: true
+
+!! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
 
 !! URxvt Perl Extensions
-URxvt.keysym.Shift.Control.V: eval:paste_clipboard
-URxvt.keysym.Shift.Control.C: eval:selection_to_clipboard
-URxvt.perl-ext-common: default,resize-font
+URxvt.perl-ext-common: default,clipboard,resize-font,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.C-S-c: perl:clipboard:copy
+URxvt.keysym.C-S-v: perl:clipboard:paste
 URxvt.keysym.C-minus: resize-font:smaller
 URxvt.keysym.C-equal: resize-font:bigger
 URxvt.keysym.C-0: resize-font:reset
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
 
 !! COLORS
 
@@ -95,65 +109,25 @@ URxvt.keysym.C-0: resize-font:reset
 
 !! Solarized-dark
 !! imported from terminal.sexy
-!!! COLORS
-!!! special
-!*.foreground:   #93a1a1
-!*.background:   #002b36
-!*.cursorColor:  #93a1a1
+!! COLORS
+!! special
+*.foreground:   #93a1a1
+*.background:   #002b36
+*.cursorColor:  #93a1a1
 
-!!! black
-!*.color0:       #002b36
-!*.color8:       #657b83
-
-!!! red
-!*.color1:       #dc322f
-!*.color9:       #dc322f
-
-!!! green
-!*.color2:       #859900
-!*.color10:      #859900
-
-!!! yellow
-!*.color3:       #b58900
-!*.color11:      #b58900
-
-!! blue
-!*.color4:       #268bd2
-!*.color12:      #268bd2
-
-!! magenta
-!*.color5:       #6c71c4
-!*.color13:      #6c71c4
-
-!! cyan
-!*.color6:       #2aa198
-!*.color14:      #2aa198
-
-!! white
-!*.color7:       #93a1a1
-!*.color15:      #fdf6e3
-
-!! Solarized-light
-!! Imported from terminal.sexy
-!!! COLORS
-!!! special
-*.foreground:   #586e75
-*.background:   #fdf6e3
-*.cursorColor:  #586e75
-
-! black
+!! black
 *.color0:       #002b36
 *.color8:       #657b83
 
-! red
+!! red
 *.color1:       #dc322f
 *.color9:       #dc322f
 
-! green
+!! green
 *.color2:       #859900
 *.color10:      #859900
 
-! yellow
+!! yellow
 *.color3:       #b58900
 *.color11:      #b58900
 
@@ -172,3 +146,43 @@ URxvt.keysym.C-0: resize-font:reset
 ! white
 *.color7:       #93a1a1
 *.color15:      #fdf6e3
+
+!! Solarized-light
+!! Imported from terminal.sexy
+!!! COLORS
+!!! special
+!*.foreground:   #586e75
+!*.background:   #fdf6e3
+!*.cursorColor:  #586e75
+
+!! black
+!*.color0:       #002b36
+!*.color8:       #657b83
+
+!! red
+!*.color1:       #dc322f
+!*.color9:       #dc322f
+
+!! green
+!*.color2:       #859900
+!*.color10:      #859900
+
+!! yellow
+!*.color3:       #b58900
+!*.color11:      #b58900
+
+!! blue
+!*.color4:       #268bd2
+!*.color12:      #268bd2
+
+!! magenta
+!*.color5:       #6c71c4
+!*.color13:      #6c71c4
+
+!! cyan
+!*.color6:       #2aa198
+!*.color14:      #2aa198
+
+!! white
+!*.color7:       #93a1a1
+!*.color15:      #fdf6e3

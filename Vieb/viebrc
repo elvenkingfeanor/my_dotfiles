@@ -6,7 +6,8 @@ set clearcookiesonquit
 set nocleardownloadsoncompleted
 set nocleardownloadsonquit
 set clearhistoryonquit=true
-set noclearlocalstorageonquit
+"set noclearlocalstorageonquit
+set clearlocalstorageonquit
 set noclosablepinnedtabs
 set commandhist=persistuseronly
 set containercolors=temp\d+~#ff0
