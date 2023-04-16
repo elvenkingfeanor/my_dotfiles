@@ -6,5 +6,6 @@ DISPLAY=:0
 10 * * * * /usr/bin/newsboat -x reload
 @reboot source ~/.config/X11/xdbus; /usr/bin/sleep 60 && /usr/bin/notify-send "updates available $(/usr/bin/checkupdates | /usr/bin/wc -l)"
 5 * * * * source ~/.config/X11/xdbus; /usr/bin/notify-send "updates available $(/usr/bin/checkupdates | /usr/bin/wc -l)"
-@reboot /usr/bin/sleep 60 && cd ~/dl/autopaper && ~/.local/bin/rust_autopaper
-15 */2 * * * cd ~/dl/autopaper && ~/.local/bin/rust_autopaper
+@reboot source ~/.config/X11/xdbus; /usr/bin/sleep 120 && ~/.local/bin/empty_paper
+15 */2 * * * source ~/.config/X11/xdbus; ~/.local/bin/empty_paper
+0 */2 1 * * /usr/bin/rm -rf ~/dl/autopaper/*

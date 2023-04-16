@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/bin/find /usr -type f | /usr/bin/fzf | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard
+/usr/bin/find /usr -type f | /usr/bin/fzf | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard 

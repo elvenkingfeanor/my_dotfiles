@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/bin/xdg-open $(/usr/bin/find . -type f | /usr/bin/fzf --preview='head -$LINES {}')
+/usr/bin/xdg-open $(/usr/bin/find . -type f | /usr/bin/fzf)

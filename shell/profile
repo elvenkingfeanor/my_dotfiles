@@ -81,5 +81,8 @@ export PATH="${PATH}:$HOME/.local/bin"
 # fzf defaults
 export FZF_DEFAULT_OPTS="--cycle --height 10%"
 
+# sk defaults
+export SKIM_DEFAULT_OPTIONS="--multi --height 10%"
+
 # define Home for any web browser
 export WWW_HOME="https://duckduckgo.com"
