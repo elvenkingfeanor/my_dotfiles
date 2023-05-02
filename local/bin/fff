@@ -1,0 +1,3 @@
+#!/bin/sh
+#fff
+/usr/bin/find $HOME -name '*' > /dev/null

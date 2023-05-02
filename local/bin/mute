@@ -1,2 +1,3 @@
 #!/bin/sh
+#mute
 /usr/bin/amixer -q sset Master toggle

@@ -1,2 +1,0 @@
-#!/bin/sh
-/usr/bin/find . -type f \( -name '*jpg' -o -name '*JPG' -o -name '*png' -o -name '*PNG' -o -name '*gif' \) | /usr/bin/xargs /usr/local/bin/nsxiv -ftpoaq | /usr/bin/sed 's@\.\/@'"$PWD"'\/@' | /usr/bin/paste -s -d ' ' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard

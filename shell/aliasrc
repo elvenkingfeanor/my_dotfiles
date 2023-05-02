@@ -44,10 +44,6 @@ alias yqs="/usr/bin/yay -Qs"
 alias yqe="/usr/bin/yay -Qe"
 alias yqi="/usr/bin/yay -Qi"
 alias yis="/usr/bin/yay -S"
-alias cache="/usr/bin/doas /usr/bin/pacman -Sc"
-name() {
-/usr/bin/pacman -Qlq "$1" | /usr/bin/grep /usr/bin/
-}
 
 # pip
 alias ppi="/usr/bin/pip install"
@@ -74,28 +70,16 @@ alias ..5="cd ../../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories
 
 # cd
 fcd() {
-cd "$(/usr/bin/find $HOME -type d | /usr/bin/sk)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
+cd "$(/usr/bin/find $HOME -type d -path $HOME/vids -prune -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
 }
 cdd() {
-cd "$(/usr/bin/find . -type d | /usr/bin/sk)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
-}
-
-# find
-alias fff="/usr/bin/find $HOME . > /dev/null"
-ff() {
-/usr/bin/find . -type "$1" -iname "$2"
+cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
 }
 
 # grep
-gpp() {
-/usr/bin/grep -iIrn --color "$1" ./*
-}
-gii() {
-/usr/bin/grep -IrL --color "$1" ./*
-}
-alias gss="/usr/bin/find $XDG_CONFIG_HOME/shell -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
-alias gbb="/usr/bin/find $HOME/.local/bin -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
-alias gsss="/usr/bin/find $HOME/src/suckless -type f | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias gss="/usr/bin/find $XDG_CONFIG_HOME/shell $HOME/.local/bin -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias gsss="/usr/bin/find $HOME/src/suckless -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias gccc="/usr/bin/find $XDG_CONFIG_HOME -type d \( -path ~/.config/autostart -o -path ~/.config/chromium -o -path ~/.config/filezilla -o -path ~/.config/inkscape -o -path ~/.config/Nextcloud -o -path ~/.config/Signal -o -path ~/.config/Vieb -o -path ~/.config/youtube-viewer \) -prune -false -o -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
 
 # clear
 alias cl=/usr/bin/clear
@@ -123,10 +107,6 @@ alias rm="/usr/bin/rm -vI"
 alias rrm="/usr/bin/doas /usr/bin/rm -vI"
 alias mkd="/usr/bin/mkdir -vp"
 alias mmkd="/usr/bin/doas /usr/bin/mkdir -vp"
-
-# grub
-alias grubi="/usr/bin/doas /usr/bin/grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub-uefi --recheck"
-alias grubm="/usr/bin/doas /usr/bin/grub-mkconfig -o /boot/grub/grub.cfg"
 
 # chown
 alias ttt=/usr/bin/touch
@@ -161,10 +141,6 @@ alias rmp="/usr/bin/trash put"
 alias rml="/usr/bin/trash list"
 alias rme="/usr/bin/trash empty"
 alias rmt="/usr/bin/trash restore"
-
-# nsxiv
-alias iv="/usr/local/bin/nsxiv -ftaoq * | /usr/bin/sed 's@^@'"$PWD"'\/@' | /usr/bin/paste -s -d ' ' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
-alias ivp="/usr/local/bin/nsxiv -ftpaoq * | /usr/bin/sed 's@^@'"$PWD"'\/@' | /usr/bin/paste -s -d ' ' | /usr/bin/tr -d '\n' | /usr/bin/xclip -selection clipboard"
 
 # newsboat
 alias nnn="/usr/bin/newsboat -x reload"
@@ -203,9 +179,6 @@ alias spot="cd $XDG_DOWNLOAD_DIR/spotdl && /usr/bin/spotdl"
 
 # torrent
 alias torr=/usr/bin/attractorr
-
-# autopaper
-alias paper="cd $XDG_DOWNLOAD_DIR/autopaper && $HOME/.local/bin/rust_autopaper"
 
 # libg
 alias booka="cd $XDG_DOWNLOAD_DIR/libg && $HOME/.local/bin/libg -b author"
@@ -260,31 +233,13 @@ alias moc="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
 alias cronl="/usr/bin/crontab -l"
 alias crone="/usr/bin/crontab -e"
 
-# mounting & unmounting
+# mount
 alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/exa -alh --group-directories-first"
 alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/exa -alh --group-directories-first"
 alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/exa -alh --group-directories-first"
 alias bbu="cd && /usr/bin/doas /usr/bin/umount /dev/sdb1"
 alias ccu="cd && /usr/bin/doas /usr/bin/umount /dev/sdc1"
 alias ddu="cd && /usr/bin/doas /usr/bin/umount /dev/sdd1"
-
-# formatting
-fat() {
-/usr/bin/doas /usr/bin/mkfs.vfat -F 32 /dev/sd"$1" -i "$2"
-}
-ext () {
-/usr/bin/doas /usr/bin/mkfs.ext4 /dev/sd"$1" -L "$2"
-}
-
-# dd
-ddx() {
-/usr/bin/doas /usr/bin/dd if="$1" of=/dev/sd"$2" bs=1M status=progress
-}
-
-# simple-mtpfs
-alias mtll="/usr/bin/simple-mtpfs -l"
-alias mtmm="/usr/bin/simple-mtpfs --device 1 $XDG_DOWNLOAD_DIR/mtp"
-alias mtuu="/usr/bin/fusermount -uz $XDG_DOWNLOAD_DIR/mtp"
 
 # when & task
 alias cal=/usr/bin/when
@@ -314,29 +269,3 @@ alias tms="/usr/bin/transmission-remote --start"
 alias tmS="/usr/bin/transmission-remote --stop"
 alias tmr="/usr/bin/transmission-remote --remove"
 alias tme="/usr/bin/transmission-remote --exit"
-
-# iss
-alias iss="/usr/bin/curl -s http://api.open-notify.org/iss-now.json | /usr/bin/jq '.'"
-
-# groff
-mpdf() {
-/usr/bin/groff -ms -T pdf "$1" > "$1".pdf
-}
-mtpdf() {
-/usr/bin/groff -ms -tbl -T pdf "$1" > "$1".pdf
-}
-mtppdf() {
-/usr/bin/groff -ms -tbl -pic -T pdf "$1" > "$1".pdf
-}
-
-# backup
-alias cvc="/usr/bin/find $HOME/dox/cv -type f -name 'cv.ms*' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_cv"
-alias cronc="/usr/bin/echo $XDG_CONFIG_HOME/crond/ $HOME/gits/my_dotfiles/crond/ | /usr/bin/xargs -n 1 /usr/bin/cp -av /var/spool/cron/ts"
-alias shellc="/usr/bin/find $XDG_CONFIG_HOME/shell -type f -name '*' | /usr/bin/grep -vI 'private' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_dotfiles/shell/"
-alias x11c="/usr/bin/cp -v $XDG_CONFIG_HOME/X11/* -t $HOME/gits/my_dotfiles/X11/"
-alias binc="/usr/bin/grep -l '#!/bin/sh' $HOME/.local/bin/* | /usr/bin/xargs /usr/bin/cp -vt $HOME/gits/my_dotfiles/local/bin/"
-alias mimec="/usr/bin/cp -v $XDG_CONFIG_HOME/mimeapps.list $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/user-dirs.locale -t $HOME/gits/my_dotfiles/mime/"
-alias stc="/usr/bin/find $HOME/src/suckless/st -type f -name '*' | /usr/bin/grep -vIE '(.git/*|config.def.h|FAQ|LEGACY|TODO|x.o|st.o|st$)' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_st"
-alias dwmc="/usr/bin/find $HOME/src/suckless/dwm -type f -name '*' | /usr/bin/grep -vIE '(.git/*|config.def.h|drw.o|dwm$|dwm.o|dwm.png|util.o)' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_dwm"
-alias dmenuc="/usr/bin/find $HOME/src/suckless/dwm -type f -name '*' | /usr/bin/grep -vIE '(.git/*|config.def.h|dmenu$|dmenu.o|drw.o|stest$|stest.o|util.o)' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_dmenu"
-alias statusc="/usr/bin/find $HOME/src/suckless/slstatus -type f -name '*' | /usr/bin/grep -vIE '(.git/*|components/*|config.def.h|slstatus$|slstatus.o|util.o)' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_status"

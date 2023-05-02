@@ -7,14 +7,14 @@
 # if a music file or pdf, it will download,
 # otherwise it opens link in browser.
 
-if [ -z "$2" ]; then
+if [ -z "$1" ]; then
 	url="$(xclip -o)"
 else
-	url="$2"
+	url="$1"
 fi
 
 case "$url" in
-	*mkv|*webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtube.com/shorts*|*youtu.be*|*hooktube.com*|*bitchute.com*|*videos.lukesmith.xyz*|*odysee.com*)
+	*mkv|*webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtube.com/shorts*|*youtu.be*|*hooktube.com*|*bitchute.com*|*videos.lukesmith.xyz*|*odysee.com*|*player.odycdn.com*)
 		/usr/bin/setsid -f /usr/bin/mpv -quiet "$url" >/dev/null 2>&1 ;;
 	*png|*jpg|*jpe|*jpeg|*gif)
 		/usr/bin/curl -sL "$url" > "/tmp/$(echo "$url" | /usr/bin/sed "s/.*\///;s/%20/ /g")" && /usr/local/bin/nsxiv -a "/tmp/$(echo "$url" | /usr/bin/sed "s/.*\///;s/%20/ /g")"  >/dev/null 2>&1 & ;;

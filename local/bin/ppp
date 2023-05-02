@@ -1,2 +1,0 @@
-#!/bin/sh
-/usr/bin/find . -type f | /usr/bin/fzf --preview='head -$LINES {}' -m | /usr/bin/sed 's@\.\/@'"$PWD"'\/@'

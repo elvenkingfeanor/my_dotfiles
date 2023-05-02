@@ -1,0 +1,3 @@
+#!/bin/sh
+#mimec
+/usr/bin/cp -v $XDG_CONFIG_HOME/mimeapps.list $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/user-dirs.locale -t $HOME/gits/my_dotfiles/mime/

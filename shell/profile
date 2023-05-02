@@ -23,8 +23,8 @@ export SUDO_EDITOR=/usr/bin/nvim
 export READER=/usr/bin/zathura
 export TERMINAL=/usr/local/bin/st
 export COLORTERM="st-256color"
-export BROWSER=/usr/bin/vieb
-export BROWSERCLI=/usr/bin/w3m
+export BROWSER=/usr/bin/librewolf
+export BROWSERCLI=/usr/bin/lynx
 export VIDEO=/usr/bin/mpv
 export IMAGE=/usr/local/bin/nsxiv
 export WM=/usr/local/bin/dwm
@@ -39,7 +39,7 @@ unset HISTFILE
 shopt -s histappend
 
 # ignore these commands
-export HISTIGNORE="man:cat:less:vi:pss:psi:yss:ysi:syu:Syu:cl:cll:clc:ls:cd:fcd:cdd:op:opp:xx:df:du:free:brtt:batt:mute:vol:vol70:gbb:gss:gsss:find:sr:iv:ivp:mm:nn:torr:wttr:cu:cn:yt:yta:qq:pp"
+export HISTIGNORE="man:cat:less:vi:pss:psi:yss:ysi:cl:cll:clc:fcd:cdd:op:opp:xx:df:du:brtt:batt:mute:vol:vol70:sr:iv:mm:torr:wttr:cu:cn:yt:yta:qq"
 
 # ignore duplicates
 export HISTCONTROL="ignoredups:erasedups"

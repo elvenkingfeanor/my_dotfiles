@@ -1,2 +1,0 @@
-#!/bin/sh
-/usr/bin/amixer sget Master | /usr/bin/grep "Mono:" | awk '{print $4 $6}'

@@ -1,0 +1,3 @@
+#!/bin/sh
+#gpp
+/usr/bin/grep -iIrn --color "$1" ./*
