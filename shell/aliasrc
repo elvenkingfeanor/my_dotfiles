@@ -62,29 +62,29 @@ alias clone="/usr/bin/git clone"
 alias pull="/usr/bin/git pull"
 
 # navigation
-alias ..="cd ..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first" 
-alias ...="cd ../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
-alias ..3="cd ../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
-alias ..4="cd ../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
-alias ..5="cd ../../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
+alias ..="cd ..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid" 
+alias ...="cd ../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
+alias ..3="cd ../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
+alias ..4="cd ../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
+alias ..5="cd ../../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
 
 # cd
-fcd() {
-cd "$(/usr/bin/find $HOME -type d -path $HOME/vids -prune -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
+fcc() {
+cd "$(/usr/bin/find $HOME -type d -path $HOME/vids -prune -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid
 }
 cdd() {
-cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first
+cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid
 }
 
 # grep
 alias gss="/usr/bin/find $XDG_CONFIG_HOME/shell $HOME/.local/bin -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
 alias gsss="/usr/bin/find $HOME/src/suckless -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
-alias gccc="/usr/bin/find $XDG_CONFIG_HOME -type d \( -path ~/.config/autostart -o -path ~/.config/chromium -o -path ~/.config/filezilla -o -path ~/.config/inkscape -o -path ~/.config/Nextcloud -o -path ~/.config/Signal -o -path ~/.config/Vieb -o -path ~/.config/youtube-viewer \) -prune -false -o -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias gccc="/usr/bin/find $XDG_CONFIG_HOME -type d \( -path ~/.config/autostart -o -path ~/.config/chromium -o -path ~/.config/filezilla -o -path ~/.config/inkscape -o -path ~/.config/Nextcloud -o -path ~/.config/Signal -o -path ~/.config/youtube-viewer \) -prune -false -o -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
 
 # clear
 alias cl=/usr/bin/clear
 alias clc="/usr/bin/clear;cd"
-alias cll="/usr/bin/clear;/usr/bin/exa -lh --group-directories-first"
+alias cll="/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
 
 # whereis
 alias ww=/usr/bin/whereis
@@ -115,8 +115,9 @@ alias modu="/usr/bin/chmod -x"
 alias own="/usr/bin/doas /usr/bin/chown $(/usr/bin/echo $(/usr/bin/id -un):$(/usr/bin/id -gn))"
 
 # ls
-alias ls="/usr/bin/exa -lh --group-directories-first"
-alias lsa="/usr/bin/exa -alh --group-directories-first"
+alias ls="/usr/bin/exa -lh --group-directories-first --grid"
+alias lsa="/usr/bin/exa -alh --group-directories-first --grid"
+alias cc="/usr/bin/ls -A | /usr/bin/wc -l"
 
 # tree
 alias tree1="/usr/bin/tree -d -L 1"
@@ -145,9 +146,12 @@ alias rmt="/usr/bin/trash restore"
 # newsboat
 alias nnn="/usr/bin/newsboat -x reload"
 
+# nsxiv
+alias pp=/usr/local/bin/nsxiv
+
 # mpv
 alias mmm="/usr/bin/mpv *.mp4 *.mkv"
-alias mm="/usr/bin/mpv"
+alias mm=/usr/bin/mpv
 
 # thumbnailer
 alias txx="/usr/bin/vcs -i 1m -c 4"
@@ -214,8 +218,8 @@ alias mbsync="/usr/bin/mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias sync="/usr/bin/mbsync -a -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 
 # checkupdates
-alias cu=/usr/bin/checkupdates
-alias cn="/usr/bin/checkupdates | /usr/bin/wc -l"
+alias cu="/usr/bin/pacman -Qu"
+alias cn="/usr/bin/pacman -Qu | /usr/bin/wc -l"
 
 # scim
 alias sc=/usr/bin/sc-im
@@ -233,16 +237,24 @@ alias moc="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
 alias cronl="/usr/bin/crontab -l"
 alias crone="/usr/bin/crontab -e"
 
+# network status
+alias wifi="/usr/bin/iwctl station wlan0 show"
+alias scan="/usr/bin/iwctl station wlan0 scan"
+alias netw="/usr/bin/iwctl station wlan0 get-networks"
+
 # mount
-alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/exa -alh --group-directories-first"
-alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/exa -alh --group-directories-first"
-alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/exa -alh --group-directories-first"
+alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/exa -alh --group-directories-first --grid"
+alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/exa -alh --group-directories-first --grid"
+alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/exa -alh --group-directories-first --grid"
 alias bbu="cd && /usr/bin/doas /usr/bin/umount /dev/sdb1"
 alias ccu="cd && /usr/bin/doas /usr/bin/umount /dev/sdc1"
 alias ddu="cd && /usr/bin/doas /usr/bin/umount /dev/sdd1"
 
+# latex
+alias ll=/usr/bin/pdflatex
+
 # when & task
-alias cal=/usr/bin/when
+alias cal="/usr/bin/cal -y"
 alias calm="/usr/bin/when m"
 alias caly="/usr/bin/when y"
 alias cale="/usr/bin/when e"
@@ -257,15 +269,3 @@ alias sffn="/usr/bin/studyflash new"
 alias sffa="/usr/bin/studyflash add"
 alias sffe="/usr/bin/studyflash edit"
 alias sffs="/usr/bin/studyflash study"
-
-# transmission-cli
-alias tmd=/usr/bin/transmission-daemon
-alias tma="/usr/bin/transmission-remote --add"
-alias tml="/usr/bin/transmission-remote --list"
-alias tmt="/usr/bin/transmission-remote --torrent"
-alias tmf="/usr/bin/transmission-remote --files"
-alias tmg="/usr/bin/transmission-remote --get"
-alias tms="/usr/bin/transmission-remote --start"
-alias tmS="/usr/bin/transmission-remote --stop"
-alias tmr="/usr/bin/transmission-remote --remove"
-alias tme="/usr/bin/transmission-remote --exit"
