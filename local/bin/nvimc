@@ -1,3 +1,0 @@
-#!/bin/sh
-#nvimc
-/usr/bin/cp -vrf $XDG_CONFIG_HOME/nvim/init.lua $XDG_CONFIG_HOME/nvim/spell/ -t $HOME/gits/my_dotfiles/nvim/

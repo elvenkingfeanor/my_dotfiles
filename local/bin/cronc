@@ -1,3 +1,0 @@
-#!/bin/sh
-#cronc
-/usr/bin/echo $XDG_CONFIG_HOME/crond/ $HOME/gits/my_dotfiles/crond/ | /usr/bin/xargs -n 1 /usr/bin/cp -av /var/spool/cron/ts

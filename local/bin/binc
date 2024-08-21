@@ -1,3 +1,0 @@
-#!/bin/sh
-#binc
-/usr/bin/grep -l '#!/bin/sh' $HOME/.local/bin/* | /usr/bin/xargs /usr/bin/cp -vt $HOME/gits/my_dotfiles/local/bin/
