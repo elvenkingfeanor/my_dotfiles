@@ -54,3 +54,4 @@ application/x-abook-addressbook=nvim.desktop
 [Added Associations]
 text/markdown=nvim.desktop
 text/ms=nvim.desktop;
+application/rss+xml=librewolf.desktop;

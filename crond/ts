@@ -2,10 +2,9 @@ SHELL=/bin/bash
 DISPLAY=:0
 @reboot /usr/bin/find $HOME . > /dev/null
 0 * * * * /usr/bin/find $HOME . > /dev/null
-@reboot /usr/bin/sleep 45 && /usr/bin/newsboat -x reload
-10 * * * * /usr/bin/newsboat -x reload
-@reboot source ~/.config/X11/xdbus; /usr/bin/sleep 60 && /usr/bin/notify-send "updates available $(/usr/bin/checkupdates | /usr/bin/wc -l)"
-5 * * * * source ~/.config/X11/xdbus; /usr/bin/notify-send "updates available $(/usr/bin/checkupdates | /usr/bin/wc -l)"
-@reboot source ~/.config/X11/xdbus; /usr/bin/sleep 120 && ~/.local/bin/empty_paper
-15 */2 * * * source ~/.config/X11/xdbus; ~/.local/bin/empty_paper
-0 */2 1 * * /usr/bin/rm -rf ~/dl/autopaper/*
+@reboot source ~/.config/X11/xdbus; /usr/bin/sleep 300 && /usr/bin/notify-send "updates available $(/usr/bin/pacman -Qu | /usr/bin/wc -l)"
+5 * * * * source ~/.config/X11/xdbus; /usr/bin/notify-send "updates available $(/usr/bin/pacman -Qu | /usr/bin/wc -l)"
+@reboot /usr/bin/sleep 600 && /usr/bin/newsboat -x reload
+10 */2 * * * /usr/bin/newsboat -x reload
+@reboot source ~/.config/X11/xdbus; /usr/bin/sleep 1200 && ~/.local/bin/empty_paper
+20 */2 * * * source ~/.config/X11/xdbus; ~/.local/bin/empty_paper

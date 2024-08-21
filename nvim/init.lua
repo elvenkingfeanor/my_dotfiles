@@ -44,6 +44,15 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- set spell to always on
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+
+-- disable providers
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -80,6 +89,9 @@ require('lazy').setup({
   -- Edit R files
   'R-nvim/R.nvim',
   'R-nvim/cmp-r',
+
+  -- Edit OpenSCAD files
+  'Leathong/openscad-LSP',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -226,7 +238,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'gruvbox',
+        theme = 'gruvbox_light',
         component_separators = '|',
         section_separators = '',
       },
@@ -241,6 +253,9 @@ require('lazy').setup({
     main = 'ibl',
     opts = {},
   },
+
+  -- render markdown using charmbracelet/glow
+  { "ellisonleao/glow.nvim", config = true, cmd = "Glow"},
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -295,7 +310,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- colorscheme
-vim.o.background = "dark"
+vim.o.background = "light"
 vim.cmd([[colorscheme gruvbox]])
 
 -- Set highlight on search
@@ -367,10 +382,87 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    file_ignore_patterns = {
+      "node_modules/.*",
+      "%.env",
+      "yarn.lock",
+      "package%-lock.json",
+      "lazy%-lock.json",
+      "init.sql",
+      "target/.*",
+      "^vids/.*",
+      "^musix/.*",
+      "^nvl/.*",
+      ".git/.*",
+      "%.db",
+      "%.img",
+      "%.pdf",
+      "%.PDF",
+      "%.epub",
+      "%.EPUB",
+      "%.azw3",
+      "%.AZW3",
+      "%.mobi",
+      "%.MOBI",
+      "%.cbr",
+      "%.CBR",
+      "%.djvu",
+      "%.DJVU",
+      "%.opf",
+      "%.ogg",
+      "%.jpg",
+      "%.JPG",
+      "%.jpeg",
+      "%.JPEG",
+      "%.png",
+      "%.PNG",
+      "%.svg",
+      "%.SVG",
+      "%.tif",
+      "%.TIF",
+      "%.nef",
+      "%.NEF",
+      "%.opus",
+      "%.m3u",
+      "%.mp3",
+      "%.MP3",
+      "%.m4a",
+      "%.mp4",
+      "%.MP4",
+      "%.mkv",
+      "%.MKV",
+      "%.mov",
+      "%.MOV",
+      "%.webm",
+      "%.WEBM",
+      "%.gif",
+      "%.GIF",
+      "%.gz",
+      "%.GZ",
+      "%.zip",
+      "%.ZIP",
+      "%.oxt",
+      "%.sig",
+      "%.SIG",
+      "%.iso",
+      "%.ISO",
+      "%.odt",
+      "%.ODT",
+      "%.odp",
+      "%.ODP",
+      "%.doc",
+      "%.DOC",
+      "%.docx",
+      "%.DOCX",
+      "%.xls",
+      "%.XLS",
+      "%.xlsx",
+      "%.XLSX",
+    },
     mappings = {
       i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        ['<C-u>'] = false, -- clears prompt
+        ['<C-d>'] = false, -- doesn't delete buffer
       },
     },
   },
@@ -432,6 +524,32 @@ local function telescope_live_grep_open_files()
     prompt_title = 'Live Grep in Open Files',
   }
 end
+
+local telescope = require("telescope")
+local telescopeConfig = require("telescope.config")
+
+-- clone default Telescope configuration
+local vimgrep_arguments = {unpack(telescopeConfig.values.vimgrep_arguments)}
+
+-- search in hidden dot files
+table.insert(vimgrep_arguments, "--hidden")
+-- don's search in git directory
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/.git/*")
+
+telescope.setup({
+  defaults = {
+    hidden = true, -- is not supported in text grep commands
+    vimgrep_arguments = vimgrep_arguments,
+  },
+  pickers = {
+    find_files = {
+      hidden = true, -- will still show the inside of `.git/` as it is not a `.gitignore.d`.
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    },
+  },
+})
+
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
@@ -452,11 +570,11 @@ vim.defer_fn(function()
     ensure_installed = { 'bash', 'c', 'json', 'lua', 'markdown', 'python', 'query', 'r', 'vimdoc', 'vim' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = true,
     -- List of parsers to ignore installing
-    ignore_install = {},
+    ignore_install = {'python'},
     -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
     modules = {},
     highlight = { enable = true },
@@ -562,22 +680,31 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- document existing key chains
-require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+-- let which-key existing key chains
+require('which-key').add {
+    {"<leader>c", group = "[C]ode" },
+    {"<leader>c_", hidden = true },
+    {"<leader>d", group = "[D]ocument" },
+    {"<leader>d_", hidden = true },
+    {"<leader>g", group = "[G]it" },
+    {"<leader>g_", hidden = true },
+    {"<leader>h", group = "Git [H]unk" },
+    {"<leader>h_", hidden = true },
+    {"<leader>r", group = "[R]ename" },
+    {"<leader>r_", hidden = true },
+    {"<leader>s", group = "[S]earch" },
+    {"<leader>s_", hidden = true },
+    {"<leader>t", group = "[T]oggle" },
+    {"<leader>t_", hidden = true },
+    {"<leader>w", group = "[W]orkspace" },
+    {"<leader>w_", hidden = true },
+
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
-require('which-key').register({
-  ['<leader>'] = { name = 'VISUAL <leader>' },
-  ['<leader>h'] = { 'Git [H]unk' },
+require('which-key').add ({
+    {"<leader>", group = "VISUAL <leader>", mode = "v" },
+    {"<leader>h", desc = "Git [H]unk", mode = "v" },
 }, { mode = 'v' })
 
 -- mason-lspconfig requires that these setup functions are called in this order
@@ -604,7 +731,8 @@ local servers = {
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   jsonls = {},
   vimls = {},
-  r_language_server = {},
+  openscad_lsp = { filetypes = { 'openscad' }, single_file_support = true },
+  r_language_server = { filetypes = { 'r' } },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

@@ -1,10 +1,12 @@
-include /usr/share/doc/newsboat/contrib/colorschemes/solarized-light
+include /usr/share/doc/newsboat/contrib/colorschemes/gruvbox
+# db in $XDG_DATA_HOME/newsboat/
 auto-reload yes
 confirm-exit no
 player $VIDEO
-browser linkhandler
+browser ~/.local/bin/linkhandler
 refresh-on-startup yes
-reload-time 60
+reload-time 600
+download-full-page yes
 
 bind-key h quit
 bind-key l open

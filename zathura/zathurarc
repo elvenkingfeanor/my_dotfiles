@@ -2,6 +2,13 @@
 # zathurarc
 #
 
+# sqlite backend (default "plain" backend is deprecated)
+set database "sqlite"
+
+# Synctex
+set synctex true
+set synctex-editor-command "nvim --headless -c \"VimtexInverseSearch %{line} '%{input}'\""
+
 # Enable copy to clipboard
 set selection-clipboard clipboard
 
@@ -10,6 +17,34 @@ set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1
 
+# Replace $HOME with ~
+set statusbar-home-tilde
+set window-title-home-tilde
+
+# Follow links on double click
+set double-click-follow
+
+# icon
+set window-icon on
+
+# Recolor
+set recolor-keephue
+set recolor-reverse-video
+
 # Shortcuts
-map D toggle_page_mode
+map d toggle_page_mode
 map i recolor
+
+# Color
+set default-bg "#fbf1c7"
+set default-fg "#fdf4c1"
+set index-bg "#fbf1c7"
+set index-fg "#458588"
+set index-active-bg "#f2e5bc"
+set index-active-fg "#98971a"
+set statusbar-bg "#98971a"
+set statusbar-fg "#fdf4c1"
+set inputbar-bg "#fbf1c7"
+set inputbar-fg "#458588" 
+set completion-bg "#f2e5bc"
+set completion-fg "#458588"

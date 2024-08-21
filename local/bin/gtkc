@@ -1,0 +1,3 @@
+#!/bin/sh
+#gtkc
+/usr/bin/cp -v $XDG_CONFIG_HOME/gtk-2.0/gtkrc -t $HOME/gits/my_dotfiles/gtk-2.0/ && /usr/bin/cp $XDG_CONFIG_HOME/gtk-3.0/settings.ini -t $HOME/gits/my_dotfiles/gtk-3.0/
