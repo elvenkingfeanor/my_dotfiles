@@ -9,14 +9,17 @@ set bell-style none
 # set vi mode
 set -o vi
 
-# autocd
-#shopt -s autocd
+#SHOPT
+#shopt -s autocd # autocd
+shopt -s histappend # append to history
+shopt -s expand_aliases # expand aliases
 
 # prevent overwrite of files
 #set -o noclobber
 
 # defaults
-export PAGER=/usr/bin/less
+export PAGER="/usr/bin/less -r"
+export PRINTER="Brother_DCP-B7535DW_series"
 export VISUAL=/usr/bin/nvim
 export EDITOR=/usr/bin/nvim
 export SUDO_EDITOR=/usr/bin/nvim
@@ -29,14 +32,9 @@ export VIDEO=/usr/bin/mpv
 export IMAGE=/usr/local/bin/nsxiv
 export WM=/usr/local/bin/dwm
 
-# keep history file
-set -o history
-
-# clear history on exit
-unset HISTFILE
-
-# append to history
-shopt -s histappend
+# history
+set -o history # keep history file
+unset HISTFILE # clear history on exit
 
 # ignore these commands
 export HISTIGNORE="man:cat:less:vi:pss:psi:yss:ysi:cl:cll:clc:fcd:cdd:op:opp:xx:df:du:brtt:batt:mute:vol:vol70:sr:iv:mm:torr:wttr:cu:cn:yt:yta:qq"
@@ -74,6 +72,11 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export LESSHISTFILE="$XDG_DATA_HOME"/lesshst
 export W3M_DIR="$XDG_CONFIG_HOME"/w3m
 export ANTIWORDHOME="$XDG_DOWNLOAD_DIR"/antiword
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
+export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
+export XCURSOR_PATH=/usr/share/icons:$XDG_DATA_HOME/icons
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 
 # R
 export R_HOME_USER="$XDG_CONFIG_HOME/R"
@@ -82,13 +85,10 @@ export R_HISTFILE="$XDG_CONFIG_HOME/R/history"
 export R_LIBS_USER="$XDG_DATA_HOME/R"
 
 # add custom folder to Path
-export PATH="${PATH}:$HOME/.local/bin"
+export PATH="${PATH}:$HOME/.local/bin:$HOME/edirect:$CARGO_HOME/bin"
 
 # fzf defaults
 export FZF_DEFAULT_OPTS="--cycle --height 10%"
-
-# sk defaults
-export SKIM_DEFAULT_OPTIONS="--multi --height 10%"
 
 # define Home for any web browser
 export WWW_HOME="https://duckduckgo.com"

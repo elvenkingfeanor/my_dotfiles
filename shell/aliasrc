@@ -24,12 +24,11 @@ alias udd="/usr/bin/update-desktop-database"
 # xdg-dirs
 alias udu="/usr/bin/xdg-user-dirs-update"
 
-# xrdb
+# xrdb reload
 alias xxx="/usr/bin/xrdb $XDG_CONFIG_HOME/X11/xresources"
 
 # pacman
 alias syu="/usr/bin/doas /usr/bin/pacman -Syu"
-alias sua="/usr/bin/yay -Sua"
 alias pis="/usr/bin/doas /usr/bin/pacman -S"
 alias rns="/usr/bin/doas /usr/bin/pacman -Rns"
 alias pss="/usr/bin/pacman -Ss"
@@ -37,13 +36,20 @@ alias psi="/usr/bin/pacman -Si"
 alias pqs="/usr/bin/pacman -Qs"
 alias pqe="/usr/bin/pacman -Qe"
 alias pqi="/usr/bin/pacman -Qi"
-alias Syu="/usr/bin/yay -Syu"
+alias Syu="/usr/bin/yay -Sua"
 alias yss="/usr/bin/yay -Ss"
 alias ysi="/usr/bin/yay -Si"
 alias yqs="/usr/bin/yay -Qs"
 alias yqe="/usr/bin/yay -Qe"
 alias yqi="/usr/bin/yay -Qi"
 alias yis="/usr/bin/yay -S"
+
+# journalctl
+alias jctl="/usr/bin/journalctl -p 3 -xb" # show errors from journalctl
+
+# gpg
+alias gpg-check="/usr/bin/gpg2 --keyserver-options auto-key-retrieve --verify" # verify downloaded files
+alias gpg-retrieve="/usr/bin/gpg2 --keyserver-options auto-key-retrieve --receive-keys" # receive keys of a developer
 
 # pip
 alias ppi="/usr/bin/pip install"
@@ -62,29 +68,38 @@ alias clone="/usr/bin/git clone"
 alias pull="/usr/bin/git pull"
 
 # navigation
-alias ..="cd ..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid" 
-alias ...="cd ../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
-alias ..3="cd ../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
-alias ..4="cd ../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
-alias ..5="cd ../../../../..;/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
+alias ..="cd ..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid" 
+alias ...="cd ../..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
+alias ..3="cd ../../..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
+alias ..4="cd ../../../..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
+alias ..5="cd ../../../../..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
 
 # cd
 fcc() {
-cd "$(/usr/bin/find $HOME -type d -path $HOME/vids -prune -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid
+cd "$(/usr/bin/find $HOME -type d -path $HOME/vids -prune -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid
 }
 cdd() {
-cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid
+cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid
 }
 
 # grep
 alias gss="/usr/bin/find $XDG_CONFIG_HOME/shell $HOME/.local/bin -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias Gss="/usr/bin/find $XDG_CONFIG_HOME/shell $HOME/.local/bin -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -In --no-ignore-case --color"
 alias gsss="/usr/bin/find $HOME/src/suckless -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
-alias gccc="/usr/bin/find $XDG_CONFIG_HOME -type d \( -path ~/.config/autostart -o -path ~/.config/chromium -o -path ~/.config/filezilla -o -path ~/.config/inkscape -o -path ~/.config/Nextcloud -o -path ~/.config/Signal -o -path ~/.config/youtube-viewer \) -prune -false -o -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
+alias Gsss="/usr/bin/find $HOME/src/suckless -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -In --no-ignore-case --color"
 
 # clear
 alias cl=/usr/bin/clear
 alias clc="/usr/bin/clear;cd"
-alias cll="/usr/bin/clear;/usr/bin/exa -lh --group-directories-first --grid"
+alias cll="/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
+alias clt="/usr/bin/clear;/usr/bin/tree -aC"
+
+# tree
+alias tree="/usr/bin/tree -C"
+alias tree1="/usr/bin/tree -d -L 1"
+alias tree2="/usr/bin/tree -d -L 2"
+alias tree3="/usr/bin/tree -d -L 3"
+alias tree4="/usr/bin/tree -d -L 4"
 
 # whereis
 alias ww=/usr/bin/whereis
@@ -97,6 +112,9 @@ alias ninja="cd $HOME && /usr/bin/clear && /usr/bin/xdg-ninja"
 
 # bulk rename
 alias nn="/usr/local/bin/vimv"
+
+# glow
+alias gg="/usr/bin/glow -p"
 
 # confirm before overwriting something
 alias cp="/usr/bin/cp -vi"
@@ -115,20 +133,14 @@ alias modu="/usr/bin/chmod -x"
 alias own="/usr/bin/doas /usr/bin/chown $(/usr/bin/echo $(/usr/bin/id -un):$(/usr/bin/id -gn))"
 
 # ls
-alias ls="/usr/bin/exa -lh --group-directories-first --grid"
-alias lsa="/usr/bin/exa -alh --group-directories-first --grid"
+alias ls="/usr/bin/eza -lh --group-directories-first --grid"
+alias lsa="/usr/bin/eza -alh --group-directories-first --grid"
 alias cc="/usr/bin/ls -A | /usr/bin/wc -l"
-
-# tree
-alias tree1="/usr/bin/tree -d -L 1"
-alias tree2="/usr/bin/tree -d -L 2"
-alias tree3="/usr/bin/tree -d -L 3"
-alias tree4="/usr/bin/tree -d -L 4"
 
 # rust alternatives
 alias cat=/usr/bin/bat
 alias rg="/usr/bin/rg -i --colors 'match:fg:green'"
-alias fd="/usr/bin/fd -c always"
+alias fd="/usr/bin/fd -H -c auto" # search hidden files
 
 # make
 alias mmi="/usr/bin/doas /usr/bin/make clean install"
@@ -150,7 +162,7 @@ alias nnn="/usr/bin/newsboat -x reload"
 alias pp=/usr/local/bin/nsxiv
 
 # mpv
-alias mmm="/usr/bin/mpv *.mp4 *.mkv"
+alias mmm="/usr/bin/mpv *.mp4 *.mkv *.m4v"
 alias mm=/usr/bin/mpv
 
 # thumbnailer
@@ -178,8 +190,8 @@ alias yt="/usr/bin/yt-dlp -ic"
 alias yta="/usr/bin/yt-dlp -xic"
 alias qq="/usr/bin/torsocks /usr/bin/yt-dlp -ic"
 
-# spotdl
-alias spot="cd $XDG_DOWNLOAD_DIR/spotdl && /usr/bin/spotdl"
+# zathura
+alias zz=/usr/bin/zathura
 
 # torrent
 alias torr=/usr/bin/attractorr
@@ -196,10 +208,6 @@ alias wget="/usr/bin/wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 # weather
 alias wttr="/usr/bin/curl wttr.in/$place"
-
-# wiki
-alias wiki="/usr/bin/wiki-search" # search Arch-Wiki
-alias wikk="/usr/bin/wikicurses" # search Wikipedia
 
 # surfraw
 alias sr="/usr/bin/sr duckduckgo"
@@ -220,18 +228,17 @@ alias sync="/usr/bin/mbsync -a -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 # checkupdates
 alias cu="/usr/bin/pacman -Qu"
 alias cn="/usr/bin/pacman -Qu | /usr/bin/wc -l"
+alias Cu="/usr/bin/yay -Qu"
+alias Cn="/usr/bin/yay -Qu | /usr/bin/wc -l"
 
 # scim
 alias sc=/usr/bin/sc-im
 
-# neofetch
-alias fetch="$HOME/.local/bin/paleofetch"
-
-# assistant
-alias sss=/usr/local/bin/oi
-
 # mocp
 alias moc="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
+
+# neofetch
+alias fetch="$HOME/.local/bin/paleofetch"
 
 # cron
 alias cronl="/usr/bin/crontab -l"
@@ -243,9 +250,9 @@ alias scan="/usr/bin/iwctl station wlan0 scan"
 alias netw="/usr/bin/iwctl station wlan0 get-networks"
 
 # mount
-alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/exa -alh --group-directories-first --grid"
-alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/exa -alh --group-directories-first --grid"
-alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/exa -alh --group-directories-first --grid"
+alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/eza -alh --group-directories-first --grid"
+alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/eza -alh --group-directories-first --grid"
+alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/eza -alh --group-directories-first --grid"
 alias bbu="cd && /usr/bin/doas /usr/bin/umount /dev/sdb1"
 alias ccu="cd && /usr/bin/doas /usr/bin/umount /dev/sdc1"
 alias ddu="cd && /usr/bin/doas /usr/bin/umount /dev/sdd1"
@@ -269,3 +276,6 @@ alias sffn="/usr/bin/studyflash new"
 alias sffa="/usr/bin/studyflash add"
 alias sffe="/usr/bin/studyflash edit"
 alias sffs="/usr/bin/studyflash study"
+
+# adb
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
