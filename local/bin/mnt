@@ -1,0 +1,3 @@
+#!/bin/sh
+#mnt
+/usr/bin/doas /usr/bin/mount /dev/sd"$1" /mnt/usb"$2"

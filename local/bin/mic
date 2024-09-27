@@ -1,0 +1,3 @@
+#!/bin/sh
+#mic
+if [[ $(/usr/bin/amixer get Capture | /usr/bin/grep -o off | /usr/bin/uniq -d) == "off" ]]; then /usr/bin/echo "off"; else /usr/bin/echo "on"; fi

@@ -93,6 +93,17 @@ require('lazy').setup({
   -- Edit OpenSCAD files
   'Leathong/openscad-LSP',
 
+  -- Edit LaTeX files
+  {
+    "lervag/vimtex",
+    lazy = false,
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- vimtex configurations go here
+      vim.g.vimtex_view_method = "zathura"
+    end
+  },
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -238,7 +249,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'gruvbox_light',
+        theme = 'gruvbox_dark',
         component_separators = '|',
         section_separators = '',
       },
@@ -310,7 +321,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- colorscheme
-vim.o.background = "light"
+vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
 
 -- Set highlight on search
@@ -390,8 +401,6 @@ require('telescope').setup {
       "lazy%-lock.json",
       "init.sql",
       "target/.*",
-      "^vids/.*",
-      "^musix/.*",
       "^nvl/.*",
       ".git/.*",
       "%.db",
@@ -508,6 +517,8 @@ end
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
 -- See `:help telescope.builtin`
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F] Live [G]rep' })
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
@@ -567,7 +578,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'bash', 'c', 'json', 'lua', 'markdown', 'python', 'query', 'r', 'vimdoc', 'vim' },
+    ensure_installed = { 'bash', 'markdown', 'r', 'latex' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = true,
@@ -721,16 +732,16 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  bashls = {},
-  clangd = {},
+  -- clangd = {},
   -- gopls = {},
-  pyright = {},
+  -- pyright = {},
   marksman = {},
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-  jsonls = {},
-  vimls = {},
+  -- jsonls = {},
+  -- vimls = {},
+  texlab = {},
   openscad_lsp = { filetypes = { 'openscad' }, single_file_support = true },
   r_language_server = { filetypes = { 'r' } },
   lua_ls = {
@@ -824,3 +835,30 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- My Custom Keymaps
+vim.keymap.set('n', '<M-w>', '<C-w>w', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-h>', '<C-w>h', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-j>', '<C-w>j', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-k>', '<C-w>k', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-l>', '<C-w>l', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-t>', 'gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-n>', '<cmd>tabnew<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-q>', '<cmd>tabclose<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-_>', '<cmd>%s@\\ \\+@_@g<cr><cmd>%s@,_@-@g<cr><cmd>%s@_-_@-@g<cr><cmd>%s@)_@-@g<cr><cmd>%s@)_@-@g<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-.>', '<cmd>%s@\\ \\+@\\.@g<cr><cmd>%s@,\\.@-@g<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-,,>', '<cmd>%s@,\\+@\\,@g<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-[>', '<cmd>%s@\\[@@g<cr><cmd>%s@\\]@@g<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-(>', '<cmd>%s@(@@g<cr><cmd>%s@)@@g<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-|>', '<cmd>%s@|@@g<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-&>', '<cmd>%s@&@and@g<cr>', { noremap = true, silent = true })
+-- open help window in vertical split to right
+vim.api.nvim_create_autocmd("BufWinEnter", {
+group = vim.api.nvim_create_augroup("help_window_right", {}),
+  pattern = { "*.txt" },
+  callback = function ()
+    if vim.o.filetype == 'help' then
+      vim.cmd.wincmd("L")
+    end
+  end
+})

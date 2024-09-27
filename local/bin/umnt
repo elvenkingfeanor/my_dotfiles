@@ -1,0 +1,3 @@
+#!/bin/sh
+#umnt
+/usr/bin/doas /usr/bin/umount /dev/sd"$1"

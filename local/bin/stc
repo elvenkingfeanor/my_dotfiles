@@ -1,3 +1,3 @@
 #!/bin/sh
 #stc
-/usr/bin/find $HOME/src/suckless/st -type f -name '*' | /usr/bin/grep -vIE '(.git/*|config.def.h|FAQ|LEGACY|TODO|x.o|st.o|st$)' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_st
+/usr/bin/find $HOME/prog/suckless/st -type f -name '*' | /usr/bin/grep -vIE '(.git/*|config.def.h|FAQ|LEGACY|TODO|x.o|st.o|st$)' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_st
