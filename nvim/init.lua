@@ -852,7 +852,7 @@ vim.keymap.set('n', '<M-[>', '<cmd>%s@\\[@@g<cr><cmd>%s@\\]@@g<cr>', { noremap =
 vim.keymap.set('n', '<M-(>', '<cmd>%s@(@@g<cr><cmd>%s@)@@g<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-|>', '<cmd>%s@|@@g<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-&>', '<cmd>%s@&@and@g<cr>', { noremap = true, silent = true })
--- open help window in vertical split to right
+-- function to open help buffer in vertical split to right
 vim.api.nvim_create_autocmd("BufWinEnter", {
 group = vim.api.nvim_create_augroup("help_window_right", {}),
   pattern = { "*.txt" },
