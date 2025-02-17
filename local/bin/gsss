@@ -1,0 +1,3 @@
+#!/bin/sh
+#gsss
+/usr/bin/find $HOME/prog/suckless $XDG_DOWNLOAD_DIR/examples -type f | /usr/bin/xargs /usr/bin/grep -iIrn --color "$1"

@@ -843,15 +843,18 @@ vim.keymap.set('n', '<M-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-l>', '<C-w>l', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-t>', 'gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-T>', 'gT', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-n>', '<cmd>tabnew<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-q>', '<cmd>tabclose<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-_>', '<cmd>%s@\\ \\+@_@g<cr><cmd>%s@,_@-@g<cr><cmd>%s@_-_@-@g<cr><cmd>%s@)_@-@g<cr><cmd>%s@)_@-@g<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-.>', '<cmd>%s@\\ \\+@\\.@g<cr><cmd>%s@,\\.@-@g<cr>', { noremap = true, silent = true })
-vim.keymap.set('n', '<M-,,>', '<cmd>%s@,\\+@\\,@g<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-,>', '<cmd>%s@,\\+@\\,@g<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-->', '<cmd>%s@\\.-\\.@\\.@g<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-[>', '<cmd>%s@\\[@@g<cr><cmd>%s@\\]@@g<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-(>', '<cmd>%s@(@@g<cr><cmd>%s@)@@g<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-|>', '<cmd>%s@|@@g<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<M-&>', '<cmd>%s@&@and@g<cr>', { noremap = true, silent = true })
+
 -- function to open help buffer in vertical split to right
 vim.api.nvim_create_autocmd("BufWinEnter", {
 group = vim.api.nvim_create_augroup("help_window_right", {}),

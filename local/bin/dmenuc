@@ -1,3 +1,0 @@
-#!/bin/sh
-#dmenuc
-/usr/bin/find $HOME/prog/suckless/dmenu -type f -name '*' | /usr/bin/grep -vIE '(.git/*|config.def.h|dmenu$|dmenu.o|drw.o|stest$|stest.o|util.o)' | /usr/bin/xargs -I {} /usr/bin/cp -av {} $HOME/gits/my_dmenu

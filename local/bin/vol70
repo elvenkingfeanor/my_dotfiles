@@ -1,3 +1,0 @@
-#!/bin/sh
-#vol70
-/usr/bin/amixer -q set Master 70\% unmute

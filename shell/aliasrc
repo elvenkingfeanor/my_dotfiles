@@ -1,13 +1,8 @@
-#!/bin/bash
-
-alias ssb="source $HOME/.bashrc"
+#!/bin/sh
+# ~/.config/shell/aliasrc
 
 # sudo
 alias sudo=/usr/bin/doas
-
-# power
-alias reboot="/usr/bin/doas /usr/bin/reboot"
-alias poweroff="/usr/bin/doas /usr/bin/poweroff"
 
 # xdg-mime
 alias xxff="/usr/bin/xdg-mime query filetype"
@@ -43,8 +38,7 @@ alias yqs="/usr/bin/yay -Qs"
 alias yqe="/usr/bin/yay -Qe"
 alias yqi="/usr/bin/yay -Qi"
 alias yis="/usr/bin/yay -S"
-# list all explicitely installed packages
-alias pll="/usr/bin/pacman -Qe"
+alias pll="/usr/bin/pacman -Qe" # list all explicitly installed packages
 
 # journalctl
 alias jctl="/usr/bin/journalctl -p 3 -xb" # show errors from journalctl
@@ -61,13 +55,14 @@ alias ppc="/usr/bin/pip check"
 alias pps="/usr/bin/pip show"
 
 # git
-alias status="/usr/bin/git status"
-alias add="/usr/bin/git add"
-alias remove="/usr/bin/git rm"
-alias commit="/usr/bin/git commit -m"
-alias push="/usr/bin/git push"
-alias clone="/usr/bin/git clone"
-alias pull="/usr/bin/git pull"
+alias gs="/usr/bin/git status"
+alias gd="/usr/bin/git diff"
+alias ga="/usr/bin/git add -v"
+alias grm="/usr/bin/git rm"
+alias gcm="/usr/bin/git commit -m"
+alias gps="/usr/bin/git push"
+alias gcl="/usr/bin/git clone"
+alias gpl="/usr/bin/git pull"
 
 # navigation
 alias ..="cd ..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
@@ -75,46 +70,43 @@ alias ...="cd ../..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --
 alias ....="cd ../../..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
 alias .....="cd ../../../..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
 alias ......="cd ../../../../..;/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
-alias ..t="cd ..;/usr/bin/clear;/usr/bin/tree -C"
-alias ..tt="cd ..;/usr/bin/clear;/usr/bin/tree -d -C"
-alias ...t="cd ../..;/usr/bin/clear;/usr/bin/tree -C"
-alias ...tt="cd ../..;/usr/bin/clear;/usr/bin/tree -d -C"
-alias ....t="cd ../../..;/usr/bin/clear;/usr/bin/tree -C"
-alias ....tt="cd ../../..;/usr/bin/clear;/usr/bin/tree -d -C"
-alias .....t="cd ../../../..;/usr/bin/clear;/usr/bin/tree -C"
-alias .....tt="cd ../../../..;/usr/bin/clear;/usr/bin/tree -d -C"
-alias ......t="cd ../../../../..;/usr/bin/clear;/usr/bin/tree -C"
-alias ......tt="cd ../../../../..;/usr/bin/clear;/usr/bin/tree -d -C"
+alias ..t="cd ..;/usr/bin/clear;/usr/bin/tree -C | /usr/bin/ov"
+alias ..tt="cd ..;/usr/bin/clear;/usr/bin/tree -d -C | /usr/bin/ov"
+alias ...t="cd ../..;/usr/bin/clear;/usr/bin/tree -C | /usr/bin/ov"
+alias ...tt="cd ../..;/usr/bin/clear;/usr/bin/tree -d -C | /usr/bin/ov"
+alias ....t="cd ../../..;/usr/bin/clear;/usr/bin/tree -C | /usr/bin/ov"
+alias ....tt="cd ../../..;/usr/bin/clear;/usr/bin/tree -d -C | /usr/bin/ov"
+alias .....t="cd ../../../..;/usr/bin/clear;/usr/bin/tree -C | /usr/bin/ov"
+alias .....tt="cd ../../../..;/usr/bin/clear;/usr/bin/tree -d -C | /usr/bin/ov"
+alias ......t="cd ../../../../..;/usr/bin/clear;/usr/bin/tree -C | /usr/bin/ov"
+alias ......tt="cd ../../../../..;/usr/bin/clear;/usr/bin/tree -d -C | /usr/bin/ov"
 
 # cd
 fcc() {
-cd "$(/usr/bin/find $HOME -type d -path $HOME/vids -prune -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid
+cd "$(/usr/bin/find $HOME -type d \( -path $HOME/vids -prune -o -path $HOME/librm -prune -o -path $HOME/pix -prune -o -path $HOME/musix -prune \) -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid
 }
 ftt() {
-cd "$(/usr/bin/find $HOME -type d -path $HOME/vids -prune -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/tree -aC
+cd "$(/usr/bin/find $HOME -type d \( -path $HOME/vids -prune -o -path $HOME/librm -prune -o -path $HOME/pix -prune -o -path $HOME/musix -prune \) -false -o -type d -name '*' -print | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/tree -aC | /usr/bin/ov
+}
+mcc() {
+cd "$(/usr/bin/find /media/ -type d -path *vids -prune -false -o -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid
 }
 cdd() {
 cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid
 }
 ctt() {
-cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/tree -aC
+cd "$(/usr/bin/find . -type d | /usr/bin/fzf)";/usr/bin/clear;/usr/bin/tree -aC | /usr/bin/ov
 }
-
-# grep
-alias gss="/usr/bin/find $XDG_CONFIG_HOME/shell $HOME/.local/bin -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
-alias Gss="/usr/bin/find $XDG_CONFIG_HOME/shell $HOME/.local/bin -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -In --no-ignore-case --color"
-alias gsss="/usr/bin/find $HOME/prog/suckless -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -iIn --color"
-alias Gsss="/usr/bin/find $HOME/prog/suckless -type f -name '*' -print | /usr/bin/xargs /usr/bin/grep -In --no-ignore-case --color"
 
 # clear
 alias cl=/usr/bin/clear
 alias clc="/usr/bin/clear;cd"
 alias cll="/usr/bin/clear;/usr/bin/eza -lh --group-directories-first --grid"
-alias clt="/usr/bin/clear;/usr/bin/tree -aC"
-alias ct1="/usr/bin/clear;/usr/bin/tree -C -d -L 1"
-alias ct2="/usr/bin/clear;/usr/bin/tree -C -d -L 2"
-alias ct3="/usr/bin/clear;/usr/bin/tree -C -d -L 3"
-alias ct4="/usr/bin/clear;/usr/bin/tree -C -d -L 4"
+alias clt="/usr/bin/clear;/usr/bin/tree -aC | /usr/bin/ov"
+alias ct1="/usr/bin/clear;/usr/bin/tree -C -d -L 1 | /usr/bin/ov"
+alias ct2="/usr/bin/clear;/usr/bin/tree -C -d -L 2 | /usr/bin/ov"
+alias ct3="/usr/bin/clear;/usr/bin/tree -C -d -L 3 | /usr/bin/ov"
+alias ct4="/usr/bin/clear;/usr/bin/tree -C -d -L 4 | /usr/bin/ov"
 
 # tree
 alias tree="/usr/bin/tree -aC"
@@ -129,6 +121,9 @@ alias ww=/usr/bin/whereis
 # checkbashisms
 alias bism=/usr/bin/checkbashisms
 
+# lsblk
+alias llb=/usr/bin/lsblk
+
 # xdg-ninja
 alias ninja="cd $HOME && /usr/bin/clear && /usr/bin/xdg-ninja"
 
@@ -140,8 +135,8 @@ alias nnn="/usr/bin/doas /usr/bin/vimv"
 alias gg="/usr/bin/glow -p"
 
 # confirm before overwriting something
-alias cp="/usr/bin/cp -vi"
-alias ccp="/usr/bin/doas /usr/bin/cp -vi"
+alias cp="/usr/bin/cp -vir"
+alias ccp="/usr/bin/doas /usr/bin/cp -vir"
 alias mv="/usr/bin/mv -vi"
 alias mmv="/usr/bin/doas /usr/bin/mv -vi"
 alias rm="/usr/bin/rm -vI"
@@ -166,11 +161,14 @@ alias rg="/usr/bin/rg -i --colors 'match:fg:green'"
 alias fd="/usr/bin/fd -H -c auto" # search hidden files
 
 # make
-alias mmi="/usr/bin/doas /usr/bin/make clean install"
+alias mmi="/usr/bin/make && /usr/bin/doas /usr/bin/make clean install"
 alias mmu="/usr/bin/doas /usr/bin/make clean uninstall"
 
 # kill
 alias kill="/usr/bin/kill -9"
+
+# web ports
+alias port="/usr/bin/lsof -i -P -n"
 
 ## trash
 #alias rmp="/usr/bin/trash put"
@@ -187,6 +185,7 @@ alias pp=/usr/bin/nsxiv
 # mpv
 alias mmm="/usr/bin/mpv *.mp4 *.mkv *.m4v"
 alias mm=/usr/bin/mpv
+alias info="/usr/bin/ffmpeg -i"
 
 # thumbnailer
 alias txx="/usr/bin/vcs -i 1m -c 4"
@@ -209,7 +208,7 @@ alias freemem="/usr/bin/free -h -s 1 -c 3"
 # ytdl
 alias yt="/usr/bin/yt-dlp -ic"
 alias yta="/usr/bin/yt-dlp -xic"
-alias qq="/usr/bin/torsocks /usr/bin/yt-dlp -ic"
+#alias qq="/usr/bin/torsocks /usr/bin/yt-dlp -ic"
 
 # zathura
 alias zz=/usr/bin/zathura
@@ -243,20 +242,20 @@ alias mail="/usr/bin/mbsync -a -c $XDG_CONFIG_HOME/isync/mbsyncrc && /usr/bin/ne
 alias abook="/usr/bin/abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook"
 
 # mbsync
-alias mbsync="/usr/bin/mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
-alias sync="/usr/bin/mbsync -a -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+#alias mbsync="/usr/bin/mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+#alias sync="/usr/bin/mbsync -a -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 
 # checkupdates
-alias cu="/usr/bin/pacman -Qu"
-alias cn="/usr/bin/pacman -Qu | /usr/bin/wc -l"
+alias cu="/usr/bin/checkupdates"
+alias cn="/usr/bin/checkupdates| /usr/bin/wc -l"
 alias Cu="/usr/bin/yay -Qu"
 alias Cn="/usr/bin/yay -Qu | /usr/bin/wc -l"
 
 # scim
-alias sc=/usr/bin/sc-im
+#alias sc=/usr/bin/sc-im
 
 # mocp
-alias moc="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
+#alias moc="/usr/bin/mocp -M $XDG_CONFIG_HOME/moc"
 
 # neofetch
 alias fetch="$HOME/.local/bin/paleofetch"
@@ -271,41 +270,41 @@ alias scan="/usr/bin/iwctl station wlan0 scan"
 alias netw="/usr/bin/iwctl station wlan0 get-networks"
 
 # mount
-alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/eza -alh --group-directories-first --grid"
-alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/eza -alh --group-directories-first --grid"
-alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/eza -alh --group-directories-first --grid"
-alias bbu="cd && /usr/bin/doas /usr/bin/umount /dev/sdb1"
-alias ccu="cd && /usr/bin/doas /usr/bin/umount /dev/sdc1"
-alias ddu="cd && /usr/bin/doas /usr/bin/umount /dev/sdd1"
+#alias bbm="/usr/bin/doas /usr/bin/mount /dev/sdb1 /mnt/usb1 && cd /mnt/usb1 && /usr/bin/eza -alh --group-directories-first --grid"
+#alias ccm="/usr/bin/doas /usr/bin/mount /dev/sdc1 /mnt/usb2 && cd /mnt/usb2 && /usr/bin/eza -alh --group-directories-first --grid"
+#alias ddm="/usr/bin/doas /usr/bin/mount /dev/sdd1 /mnt/usb3 && cd /mnt/usb3 && /usr/bin/eza -alh --group-directories-first --grid"
+#alias bbu="cd && /usr/bin/doas /usr/bin/umount /dev/sdb1"
+#alias ccu="cd && /usr/bin/doas /usr/bin/umount /dev/sdc1"
+#alias ddu="cd && /usr/bin/doas /usr/bin/umount /dev/sdd1"
 
 # latex
 alias ll=/usr/bin/pdflatex
 
-# when & task
+# calendar
 alias cal="/usr/bin/cal -y"
-alias calm="/usr/bin/when m"
-alias caly="/usr/bin/when y"
-alias cale="/usr/bin/when e"
-alias todo=/usr/bin/task
-alias ttt=/usr/bin/task
-alias ttta="/usr/bin/task add"
-alias ttte="/usr/bin/task edit"
-alias tttu="/usr/bin/task undo"
+#alias calm="/usr/bin/when m"
+#alias caly="/usr/bin/when y"
+#alias cale="/usr/bin/when e"
+#alias todo=/usr/bin/task
+#alias ttt=/usr/bin/task
+#alias ttta="/usr/bin/task add"
+#alias ttte="/usr/bin/task edit"
+#alias tttu="/usr/bin/task undo"
 
 # studyflash
-alias sffn="/usr/bin/studyflash new"
-alias sffa="/usr/bin/studyflash add"
-alias sffe="/usr/bin/studyflash edit"
-alias sffs="/usr/bin/studyflash study"
+#alias sffn="/usr/bin/studyflash new"
+#alias sffa="/usr/bin/studyflash add"
+#alias sffe="/usr/bin/studyflash edit"
+#alias sffs="/usr/bin/studyflash study"
 
 # adb
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 
+# wpctl
+alias mute="/usr/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
 # sl
 alias ctl=/usr/bin/sl
-
-# sound by pamixer
-alias mute="/usr/bin/pamixer -t"
 
 # random identity generator
 alias name=/usr/bin/rig
